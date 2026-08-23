@@ -1,6 +1,6 @@
 # 🛡️ SOC Lab — Honeypot + IA Local en Raspberry Pi 5
 
-Laboratorio casero de ciberseguridad defensiva: un honeypot SSH/Telnet (Cowrie) expuesto a internet, cuyos ataques son analizados en tiempo real por un modelo de lenguaje corriendo 100% local (Ollama + Llama 3.2), con telemetría de hardware y un dashboard de monitoreo — todo sobre una Raspberry Pi 5.
+Laboratorio de ciberseguridad defensiva: un honeypot SSH/Telnet (Cowrie) expuesto a internet, cuyos ataques son analizados en tiempo real por un modelo de lenguaje corriendo 100% local (Ollama + Llama 3.2), con telemetría de hardware y un dashboard de monitoreo — todo sobre una Raspberry Pi 5.
 
 📄 **Artículo completo (Parte 1)**: [`docs/parte1_articulo_soc_lab.md`](docs/parte1_articulo_soc_lab.md)
 
@@ -178,7 +178,7 @@ Dashboard disponible en `http://<IP_de_tu_Pi>:8501` desde cualquier dispositivo 
 
 ---
 
-## Roadmap (próximas partes de la serie)
+## Roadmap 
 
 - [ ] Captura real de payloads descargados por los atacantes + análisis por hash (VirusTotal)
 - [ ] Comparación de Llama 3.2 (3B) contra modelos especializados en ciberseguridad y contra LLMs de frontera en la nube
