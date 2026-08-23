@@ -1,0 +1,13 @@
+# Datos sensibles / generados en runtime — nunca versionar
+incidentes.json
+cowrie_logs/
+*.log
+
+# Entornos virtuales
+soc_env/
+venv/
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
