@@ -4,12 +4,15 @@ import pandas as pd
 import os
 import time
 
-st.set_page_config(page_title="HoneyPI SOC Lab - Publico", page_icon="🛡️", layout="wide")
+st.set_page_config(page_title="HoneyPI SOC Lab - Público", page_icon="🛡️", layout="wide")
 st.title("🛡️ HoneyPI - SOC Lab Público")
-st.subheader("Datos actualizados cada hora desde una Raspberry Pi 5")
-st.caption("⚠️ Este es un espejo público de solo lectura. Se actualiza automáticamente vía GitHub.")
+st.subheader("Datos actualizados automáticamente desde una Raspberry Pi 5")
+st.caption("⚠️ Este es un espejo público de solo lectura. Se sincroniza vía GitHub cada 30 minutos.")
 
-# --- Rutas relativas al repo (Streamlit Cloud clona el repo completo) ---
+auto_refresh = st.sidebar.checkbox("🔄 Auto-actualizar cada 30s", value=False)
+st.sidebar.caption("Refresca esta página; los datos en sí se actualizan cada 30 min desde la Pi.")
+
+# --- Rutas relativas al repo ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 
@@ -18,7 +21,7 @@ IPS_ENRIQUECIDAS_PATH = os.path.join(DATA_DIR, "ips_enriquecidas.json")
 PAYLOADS_PATH = os.path.join(DATA_DIR, "payloads_capturados.json")
 ESTADO_HW_PATH = os.path.join(DATA_DIR, "estado_hardware.json")
 
-# --- Estado del hardware (guardado por el script de sincronizacion) ---
+# --- Estado del hardware ---
 col1, col2, col3 = st.columns(3)
 
 if os.path.exists(ESTADO_HW_PATH):
@@ -32,7 +35,7 @@ if os.path.exists(ESTADO_HW_PATH):
             estado_th = "✅ OK" if throttled == "0x0" else f"⚠️ {throttled}"
             st.metric("⚡ Throttling", estado_th)
         with col3:
-            st.metric("🕒 Última actualización", estado.get("actualizado", "N/A"))
+            st.metric("🕒 Última sincronización", estado.get("actualizado", "N/A"))
     except Exception:
         st.info("Estado de hardware no disponible todavía.")
 else:
@@ -40,7 +43,7 @@ else:
 
 st.markdown("---")
 
-# --- Incidentes ---
+# --- Incidentes: metricas + estadisticas + historial completo ---
 df = pd.DataFrame()
 
 if os.path.exists(HISTORIAL_PATH):
@@ -54,7 +57,7 @@ if os.path.exists(HISTORIAL_PATH):
 
             c1, c2, c3 = st.columns(3)
             with c1:
-                st.metric("🚨 Total de Eventos", len(df))
+                st.metric("🚨 Total de Eventos Capturados", len(df))
             with c2:
                 if "ip_origen" in df.columns:
                     st.metric("🌍 IPs Únicas", df["ip_origen"].nunique())
@@ -66,13 +69,18 @@ if os.path.exists(HISTORIAL_PATH):
             st.write("### 📊 Estadísticas de Ataques")
             e1, e2 = st.columns(2)
             with e1:
+                st.write("**Ataques por Protocolo**")
                 if "servicio" in df.columns:
-                    st.write("**Ataques por Protocolo**")
                     st.bar_chart(df["servicio"].value_counts())
             with e2:
+                st.write("**Top 10 IPs Atacantes**")
                 if "ip_origen" in df.columns:
-                    st.write("**Top 10 IPs Atacantes**")
                     st.bar_chart(df["ip_origen"].value_counts().head(10))
+
+            st.write("**Top 10 Comandos Ejecutados**")
+            if "comando" in df.columns:
+                st.bar_chart(df["comando"].value_counts().head(10))
+
     except Exception as e:
         st.error(f"Error al procesar incidentes: {e}")
 else:
@@ -99,6 +107,8 @@ if os.path.exists(IPS_ENRIQUECIDAS_PATH):
                     "Ciudad": geo.get("ciudad", "N/A"),
                     "ISP / Org": abuse.get("isp") or geo.get("org", "N/A"),
                     "Score Abuso (%)": abuse.get("abuse_confidence_score", "N/A"),
+                    "Reportes Previos": abuse.get("total_reports", "N/A"),
+                    "Tipo de Uso": abuse.get("usage_type", "N/A"),
                 })
                 lat, lon = geo.get("lat"), geo.get("lon")
                 if lat is not None and lon is not None:
@@ -107,10 +117,23 @@ if os.path.exists(IPS_ENRIQUECIDAS_PATH):
             df_ips = pd.DataFrame(filas)
             g1, g2 = st.columns([2, 1])
             with g1:
+                st.write("**Detalle por IP**")
                 st.dataframe(df_ips, width='stretch')
             with g2:
                 if mapa_puntos:
+                    st.write("**Ubicación aproximada**")
                     st.map(pd.DataFrame(mapa_puntos), zoom=1)
+
+            r1, r2 = st.columns(2)
+            with r1:
+                score_promedio = df_ips["Score Abuso (%)"].replace("N/A", pd.NA).dropna().astype(float).mean()
+                if pd.notna(score_promedio):
+                    st.metric("Score de Abuso Promedio", f"{score_promedio:.0f}%")
+            with r2:
+                st.write("**Países de origen**")
+                st.bar_chart(df_ips["País"].value_counts())
+        else:
+            st.info("El archivo de IPs enriquecidas está vacío todavía.")
     except Exception as e:
         st.error(f"Error al procesar IPs enriquecidas: {e}")
 else:
@@ -132,17 +155,41 @@ if os.path.exists(PAYLOADS_PATH):
             df_payloads["VirusTotal"] = df_payloads["sha256"].apply(
                 lambda h: f"https://www.virustotal.com/gui/file/{h}"
             )
+            columnas_mostrar = ["timestamp", "nombre_archivo", "tamano_bytes", "VirusTotal"]
+            columnas_disponibles = [c for c in columnas_mostrar if c in df_payloads.columns]
             st.dataframe(
-                df_payloads[["timestamp", "nombre_archivo", "tamano_bytes", "VirusTotal"]],
+                df_payloads[columnas_disponibles],
                 width='stretch',
                 column_config={"VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis")},
             )
         else:
-            st.info("Todavía no se capturó ningún payload real.")
+            st.info("Todavía no se capturó ningún payload real. La vigilancia sigue activa.")
     except Exception as e:
         st.error(f"Error al procesar payloads: {e}")
 else:
     st.info("⌛ Sin datos de payloads todavía.")
 
 st.markdown("---")
-st.caption("Proyecto HoneyPI — honeypot + IA local en Raspberry Pi 5. Código completo en GitHub.")
+
+# --- Último análisis IA + historial completo de comandos ---
+if not df.empty:
+    st.write("### 🔍 Detalle del Último Análisis de la IA")
+    ultimo = df.iloc[0]
+    comando_txt = ultimo.get("comando", "N/A")
+    analisis_txt = ultimo.get("analisis", "N/A")
+    ip_txt = ultimo.get("ip_origen", "N/A")
+    st.info(
+        f"**IP de origen:** `{ip_txt}`\n\n"
+        f"**Comando ejecutado:** `{comando_txt}`\n\n"
+        f"**Diagnóstico de la IA:** {analisis_txt}"
+    )
+
+    st.write("### 🕒 Historial Completo de Ataques (con análisis de IA)")
+    st.dataframe(df, width='stretch')
+
+st.markdown("---")
+st.caption("Proyecto HoneyPI — honeypot + IA local en Raspberry Pi 5. Código completo en GitHub: github.com/rattinp/soc-lab-raspberry-pi")
+
+if auto_refresh:
+    time.sleep(30)
+    st.rerun()
