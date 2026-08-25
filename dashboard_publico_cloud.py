@@ -9,6 +9,16 @@ st.title("🛡️ HoneyPI - SOC Lab Público")
 st.subheader("Datos actualizados automáticamente desde una Raspberry Pi 5")
 st.caption("⚠️ Este es un espejo público de solo lectura. Se sincroniza vía GitHub cada 30 minutos.")
 
+st.markdown(
+    """
+    <div style="padding: 8px 0 4px 0;">
+        📖 <a href="https://www.linkedin.com/pulse/honeypi-un-soc-casero-con-ia-local-cap%C3%ADtulo-1-pablo-rattin-ntrwf/" target="_blank">
+        Leé cómo armamos esto paso a paso →</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 auto_refresh = st.sidebar.checkbox("🔄 Auto-actualizar cada 30s", value=False)
 st.sidebar.caption("Refresca esta página; los datos en sí se actualizan cada 30 min desde la Pi.")
 
