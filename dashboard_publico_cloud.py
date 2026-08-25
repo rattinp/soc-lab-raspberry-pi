@@ -219,6 +219,18 @@ if not df.empty:
 st.markdown("---")
 st.caption("Proyecto HoneyPI — honeypot + IA local en Raspberry Pi 5. Código completo en GitHub: github.com/rattinp/soc-lab-raspberry-pi")
 
+st.markdown(
+    """
+    <div style="text-align: center; padding-top: 10px; opacity: 0.7; font-size: 0.85em;">
+        Por Pablo Rattín —
+        <a href="https://www.linkedin.com/in/pablorattin" target="_blank">LinkedIn</a> ·
+        <a href="https://www.linkedin.com/pulse/honeypi-un-soc-casero-con-ia-local-cap%C3%ADtulo-1-pablo-rattin-ntrwf/" target="_blank">Artículo completo</a> ·
+        <a href="https://praxiscybersecurity.com" target="_blank">Praxis Cybersecurity</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 if auto_refresh:
     time.sleep(30)
     st.rerun()
