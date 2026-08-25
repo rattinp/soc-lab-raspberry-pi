@@ -1,0 +1,154 @@
+{
+  "2.57.122.238": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 73666,
+      "country_code": "RO",
+      "isp": "TECHOFF SRV LIMITED",
+      "domain": "dmzhost.co",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "The Netherlands",
+      "region": "North Holland",
+      "ciudad": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.90414,
+      "org": "Techoff SRV Limited"
+    }
+  },
+  "80.94.92.179": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 30275,
+      "country_code": "RO",
+      "isp": "TECHOFF SRV LIMITED",
+      "domain": "dmzhost.co",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "The Netherlands",
+      "region": "North Holland",
+      "ciudad": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.90414,
+      "org": "Techoff SRV Limited"
+    }
+  },
+  "2.57.122.209": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 21083,
+      "country_code": "RO",
+      "isp": "TECHOFF SRV LIMITED",
+      "domain": "dmzhost.co",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "The Netherlands",
+      "region": "North Holland",
+      "ciudad": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.90414,
+      "org": "Techoff SRV Limited"
+    }
+  },
+  "110.173.190.221": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 2541,
+      "country_code": "IN",
+      "isp": "PRIMENET GLOBAL LTD.",
+      "domain": "primenet.in",
+      "usage_type": "Fixed Line ISP",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "India",
+      "region": "Uttar Pradesh",
+      "ciudad": "Ghaziabad",
+      "lat": 28.6677,
+      "lon": 77.4337,
+      "org": "Primenet Global Ltd."
+    }
+  },
+  "169.58.174.32": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 56,
+      "country_code": "FR",
+      "isp": "Contabo GmbH",
+      "domain": "contabo.com",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "France",
+      "region": "Grand Est",
+      "ciudad": "Lauterbourg",
+      "lat": 48.9742,
+      "lon": 8.1851,
+      "org": "Contabo GmbH"
+    }
+  },
+  "80.94.92.55": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 33537,
+      "country_code": "RO",
+      "isp": "TECHOFF SRV LIMITED",
+      "domain": "dmzhost.co",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "The Netherlands",
+      "region": "North Holland",
+      "ciudad": "Amsterdam",
+      "lat": 52.3676,
+      "lon": 4.90414,
+      "org": "Techoff SRV Limited"
+    }
+  },
+  "80.94.95.43": {
+    "abuseipdb": {
+      "abuse_confidence_score": 100,
+      "total_reports": 1134,
+      "country_code": "RO",
+      "isp": "UNMANAGED LTD",
+      "domain": "unmanaged.uk",
+      "usage_type": "Data Center/Web Hosting/Transit",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "Hungary",
+      "region": "Budapest",
+      "ciudad": "Budapest",
+      "lat": 47.4979,
+      "lon": 19.0402,
+      "org": "Unmanaged LTD"
+    }
+  },
+  "183.236.7.171": {
+    "abuseipdb": {
+      "abuse_confidence_score": 31,
+      "total_reports": 16,
+      "country_code": "CN",
+      "isp": "China Mobile Communications Corporation",
+      "domain": "chinamobile.com",
+      "usage_type": "Fixed Line ISP",
+      "is_tor": false
+    },
+    "geolocalizacion": {
+      "pais": "China",
+      "region": "Guangdong",
+      "ciudad": "Guangzhou",
+      "lat": 23.1317,
+      "lon": 113.266,
+      "org": "China Mobile"
+    }
+  }
+}

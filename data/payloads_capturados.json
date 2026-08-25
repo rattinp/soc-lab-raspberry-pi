@@ -1,0 +1,116 @@
+[
+  {
+    "timestamp": "2026-08-25 12:35:34",
+    "nombre_archivo": "3a85280212dfd59768f4653a0060063b19d979f9191e1746846df170b116533b",
+    "tamano_bytes": 3961,
+    "sha256": "3a85280212dfd59768f4653a0060063b19d979f9191e1746846df170b116533b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/3a85280212dfd59768f4653a0060063b19d979f9191e1746846df170b116533b"
+  },
+  {
+    "timestamp": "2026-08-25 12:47:35",
+    "nombre_archivo": "redir_fa70fadc4b974826b29e99dd0ba247c4",
+    "tamano_bytes": 57,
+    "sha256": "138581a3f4d5294ff1a66dde266eb75e988781e8151a94fabe5ab2428c52fd1f",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_fa70fadc4b974826b29e99dd0ba247c4"
+  },
+  {
+    "timestamp": "2026-08-25 12:50:51",
+    "nombre_archivo": "138581a3f4d5294ff1a66dde266eb75e988781e8151a94fabe5ab2428c52fd1f",
+    "tamano_bytes": 57,
+    "sha256": "138581a3f4d5294ff1a66dde266eb75e988781e8151a94fabe5ab2428c52fd1f",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/138581a3f4d5294ff1a66dde266eb75e988781e8151a94fabe5ab2428c52fd1f"
+  },
+  {
+    "timestamp": "2026-08-25 13:45:17",
+    "nombre_archivo": "redir_5a0c2aa02ee54c889cf8c5ca519ac7fa",
+    "tamano_bytes": 399,
+    "sha256": "43728fbfb98bb39ff61a2db0fc2905bd6937997062b05b9ab8b186fdee18c09a",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_5a0c2aa02ee54c889cf8c5ca519ac7fa"
+  },
+  {
+    "timestamp": "2026-08-25 13:45:18",
+    "nombre_archivo": "redir_429cb242a5c44084a94d56f034adc854",
+    "tamano_bytes": 54,
+    "sha256": "00b6f15c2274420217ed3098a9f5f00545bf1793d7a324fd18a7809cbbf5b12b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_429cb242a5c44084a94d56f034adc854"
+  },
+  {
+    "timestamp": "2026-08-25 13:45:34",
+    "nombre_archivo": "43728fbfb98bb39ff61a2db0fc2905bd6937997062b05b9ab8b186fdee18c09a",
+    "tamano_bytes": 399,
+    "sha256": "43728fbfb98bb39ff61a2db0fc2905bd6937997062b05b9ab8b186fdee18c09a",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/43728fbfb98bb39ff61a2db0fc2905bd6937997062b05b9ab8b186fdee18c09a"
+  },
+  {
+    "timestamp": "2026-08-25 13:45:35",
+    "nombre_archivo": "00b6f15c2274420217ed3098a9f5f00545bf1793d7a324fd18a7809cbbf5b12b",
+    "tamano_bytes": 54,
+    "sha256": "00b6f15c2274420217ed3098a9f5f00545bf1793d7a324fd18a7809cbbf5b12b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/00b6f15c2274420217ed3098a9f5f00545bf1793d7a324fd18a7809cbbf5b12b"
+  },
+  {
+    "timestamp": "2026-08-25 19:28:51",
+    "nombre_archivo": "f2e2ffc024ab99eb49fa207756481aa80713398142f30888aebace5706909b36",
+    "tamano_bytes": 697,
+    "sha256": "f2e2ffc024ab99eb49fa207756481aa80713398142f30888aebace5706909b36",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/f2e2ffc024ab99eb49fa207756481aa80713398142f30888aebace5706909b36"
+  },
+  {
+    "timestamp": "2026-08-25 19:41:22",
+    "nombre_archivo": "prueba_vt_test.txt",
+    "tamano_bytes": 30,
+    "sha256": "a7fa22faf765b96338407055d331cf23e98a3f7aab53e779c0988eed2e0fbcc9",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/prueba_vt_test.txt",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
+  },
+  {
+    "timestamp": "2026-08-25 19:42:13",
+    "nombre_archivo": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "tamano_bytes": 12615680,
+    "sha256": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 29,
+      "nombre_sugerido": "N/A",
+      "tipo": "ELF",
+      "tags": [
+        "64bits",
+        "elf"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-25 19:57:59",
+    "nombre_archivo": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 58,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "text",
+        "long-sleeps",
+        "nsrl",
+        "known-distributor",
+        "trusted",
+        "legit",
+        "via-tor",
+        "attachment",
+        "idle"
+      ]
+    }
+  }
+]
