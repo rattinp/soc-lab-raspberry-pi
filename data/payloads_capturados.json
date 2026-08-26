@@ -1087,5 +1087,99 @@
         "direct-cpu-clock-access"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-26 08:29:10",
+    "nombre_archivo": "94d15544a29933b8841be37e269048fd4c6b72fb942c6373c385b9137f6d5440",
+    "tamano_bytes": 1608,
+    "sha256": "94d15544a29933b8841be37e269048fd4c6b72fb942c6373c385b9137f6d5440",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/94d15544a29933b8841be37e269048fd4c6b72fb942c6373c385b9137f6d5440",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
+  },
+  {
+    "timestamp": "2026-08-26 08:29:12",
+    "nombre_archivo": "9d44d4d051f6aa3fbc95fab0aae818347a602d655fa7f1fba6267e728d7ff2d3",
+    "tamano_bytes": 50092,
+    "sha256": "9d44d4d051f6aa3fbc95fab0aae818347a602d655fa7f1fba6267e728d7ff2d3",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/9d44d4d051f6aa3fbc95fab0aae818347a602d655fa7f1fba6267e728d7ff2d3",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 26,
+      "nombre_sugerido": "63a39d",
+      "tipo": "ELF",
+      "tags": [
+        "spreader",
+        "elf"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-26 08:29:25",
+    "nombre_archivo": "9c719ba3b1cd4a8cf820c5eaea04aae7d0188da53e75f18f9c04c1fbbd3cc97e",
+    "tamano_bytes": 45860,
+    "sha256": "9c719ba3b1cd4a8cf820c5eaea04aae7d0188da53e75f18f9c04c1fbbd3cc97e",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/9c719ba3b1cd4a8cf820c5eaea04aae7d0188da53e75f18f9c04c1fbbd3cc97e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 30,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 22,
+      "nombre_sugerido": "e84f24",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "sets-process-name",
+        "spreader"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-26 08:29:41",
+    "nombre_archivo": "a75a98641037e42abb4c543d90e81dafdae3b27e90972b705a2e9242a5bee123",
+    "tamano_bytes": 68632,
+    "sha256": "a75a98641037e42abb4c543d90e81dafdae3b27e90972b705a2e9242a5bee123",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/a75a98641037e42abb4c543d90e81dafdae3b27e90972b705a2e9242a5bee123",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 29,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 22,
+      "nombre_sugerido": "e9d91a",
+      "tipo": "ELF",
+      "tags": [
+        "spreader",
+        "elf"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-26 08:29:43",
+    "nombre_archivo": "3b2f2f02077aee3efe6dcca1bb84afc59af14fff78d1b6dd18aed0c24e08a313",
+    "tamano_bytes": 62600,
+    "sha256": "3b2f2f02077aee3efe6dcca1bb84afc59af14fff78d1b6dd18aed0c24e08a313",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/3b2f2f02077aee3efe6dcca1bb84afc59af14fff78d1b6dd18aed0c24e08a313",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 39,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 23,
+      "nombre_sugerido": "14e693",
+      "tipo": "ELF",
+      "tags": [
+        "detect-debug-environment",
+        "spreader",
+        "elf",
+        "arm"
+      ]
+    }
   }
 ]
