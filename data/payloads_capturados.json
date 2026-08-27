@@ -1603,5 +1603,26 @@
       "conocido": false,
       "mensaje": "Hash no encontrado en VirusTotal todavia"
     }
+  },
+  {
+    "timestamp": "2026-08-27 10:39:04",
+    "nombre_archivo": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+    "tamano_bytes": 196,
+    "sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 61,
+      "nombre_sugerido": "covid-19update.jar",
+      "tipo": "HTML",
+      "tags": [
+        "attachment",
+        "html",
+        "known-distributor"
+      ]
+    }
   }
 ]
