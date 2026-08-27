@@ -1624,5 +1624,145 @@
         "known-distributor"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-27 11:33:21",
+    "nombre_archivo": "redir_5acb4ab2386543118cb99fb3602ed1f8",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_5acb4ab2386543118cb99fb3602ed1f8",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 59,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "known-distributor",
+        "nsrl",
+        "trusted",
+        "via-tor",
+        "runtime-modules",
+        "legit",
+        "zero-filled",
+        "attachment",
+        "direct-cpu-clock-access",
+        "software-collection"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 11:33:22",
+    "nombre_archivo": "redir_7fc779d911df4e38a7173abffe1cba47",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_7fc779d911df4e38a7173abffe1cba47",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 59,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "known-distributor",
+        "nsrl",
+        "trusted",
+        "via-tor",
+        "runtime-modules",
+        "legit",
+        "zero-filled",
+        "attachment",
+        "direct-cpu-clock-access",
+        "software-collection"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 11:33:24",
+    "nombre_archivo": "redir_9ebf70cc09284893b45ddc301d3892e6",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_9ebf70cc09284893b45ddc301d3892e6",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 59,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "known-distributor",
+        "nsrl",
+        "trusted",
+        "via-tor",
+        "runtime-modules",
+        "legit",
+        "zero-filled",
+        "attachment",
+        "direct-cpu-clock-access",
+        "software-collection"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 11:33:27",
+    "nombre_archivo": "redir_d187437b05184360bc9f54fbaed5d420",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_d187437b05184360bc9f54fbaed5d420",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 59,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "known-distributor",
+        "nsrl",
+        "trusted",
+        "via-tor",
+        "runtime-modules",
+        "legit",
+        "zero-filled",
+        "attachment",
+        "direct-cpu-clock-access",
+        "software-collection"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 11:33:38",
+    "nombre_archivo": "redir_e64f79c4bdbc410d9398b9f67e4cc845",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_e64f79c4bdbc410d9398b9f67e4cc845",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 59,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "known-distributor",
+        "nsrl",
+        "trusted",
+        "via-tor",
+        "runtime-modules",
+        "legit",
+        "zero-filled",
+        "attachment",
+        "direct-cpu-clock-access",
+        "software-collection"
+      ]
+    }
   }
 ]
