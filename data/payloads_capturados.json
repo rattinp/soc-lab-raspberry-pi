@@ -1764,5 +1764,16 @@
         "software-collection"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-27 13:59:07",
+    "nombre_archivo": "51c87d7d681afd0bfccf9f6b095576a7b4f2b8a35ea1769ab46e7327dbae7906",
+    "tamano_bytes": 1608,
+    "sha256": "51c87d7d681afd0bfccf9f6b095576a7b4f2b8a35ea1769ab46e7327dbae7906",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/51c87d7d681afd0bfccf9f6b095576a7b4f2b8a35ea1769ab46e7327dbae7906",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
   }
 ]
