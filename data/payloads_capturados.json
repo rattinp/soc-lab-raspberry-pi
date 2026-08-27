@@ -1519,5 +1519,78 @@
         "shell"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-27 03:24:46",
+    "nombre_archivo": "676653e0db93b32f4f19bbdcd9eabc4a97e99baaa195720a008ba33b49a2da48",
+    "tamano_bytes": 1608,
+    "sha256": "676653e0db93b32f4f19bbdcd9eabc4a97e99baaa195720a008ba33b49a2da48",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/676653e0db93b32f4f19bbdcd9eabc4a97e99baaa195720a008ba33b49a2da48",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
+  },
+  {
+    "timestamp": "2026-08-27 03:24:47",
+    "nombre_archivo": "b595ef9ca4756a07bc83027a943009cb947d03c4c261a3e4cc3bec467b43c203",
+    "tamano_bytes": 44744,
+    "sha256": "b595ef9ca4756a07bc83027a943009cb947d03c4c261a3e4cc3bec467b43c203",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/b595ef9ca4756a07bc83027a943009cb947d03c4c261a3e4cc3bec467b43c203",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 34,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 28,
+      "nombre_sugerido": "d0a3c0",
+      "tipo": "ELF",
+      "tags": [
+        "detect-debug-environment",
+        "spreader",
+        "elf",
+        "arm"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 03:24:49",
+    "nombre_archivo": "3366350561c41f5d15994244bfd7358ca256d16a1e954d7a986bd4d2d50c895e",
+    "tamano_bytes": 50780,
+    "sha256": "3366350561c41f5d15994244bfd7358ca256d16a1e954d7a986bd4d2d50c895e",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/3366350561c41f5d15994244bfd7358ca256d16a1e954d7a986bd4d2d50c895e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 26,
+      "nombre_sugerido": "3ebd85",
+      "tipo": "ELF",
+      "tags": [
+        "corrupted",
+        "elf"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-27 03:24:50",
+    "nombre_archivo": "abda6887930f4e2e1047b39adf23bbf8bdee9e15c7e2101245bb690be7d80488",
+    "tamano_bytes": 54596,
+    "sha256": "abda6887930f4e2e1047b39adf23bbf8bdee9e15c7e2101245bb690be7d80488",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/abda6887930f4e2e1047b39adf23bbf8bdee9e15c7e2101245bb690be7d80488",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 27,
+      "nombre_sugerido": "635cad",
+      "tipo": "ELF",
+      "tags": [
+        "spreader",
+        "elf"
+      ]
+    }
   }
 ]
