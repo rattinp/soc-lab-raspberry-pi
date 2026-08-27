@@ -1592,5 +1592,16 @@
         "elf"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-27 04:08:32",
+    "nombre_archivo": "eda32fa0afc5b27af420e1c8f625dbdd05ef73651a425244df09072d19d287a1",
+    "tamano_bytes": 1608,
+    "sha256": "eda32fa0afc5b27af420e1c8f625dbdd05ef73651a425244df09072d19d287a1",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/eda32fa0afc5b27af420e1c8f625dbdd05ef73651a425244df09072d19d287a1",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
   }
 ]
