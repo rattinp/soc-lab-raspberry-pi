@@ -194,7 +194,31 @@ if os.path.exists(PAYLOADS_PATH):
             df_payloads["VirusTotal"] = df_payloads["sha256"].apply(
                 lambda h: f"https://www.virustotal.com/gui/file/{h}"
             )
-            columnas_mostrar = ["timestamp", "nombre_archivo", "tamano_bytes", "VirusTotal"]
+
+            def _veredicto_vt(fila):
+                vt = fila.get("virustotal") if isinstance(fila, dict) else None
+                if not isinstance(vt, dict):
+                    return "⚪ Sin consultar"
+                if vt.get("error"):
+                    return "⚪ Sin consultar (API no configurada)"
+                if vt.get("conocido") is False:
+                    return "🟡 Hash no visto antes"
+                if vt.get("conocido") is True:
+                    maliciosos = vt.get("maliciosos", 0)
+                    total = (
+                        maliciosos
+                        + vt.get("sospechosos", 0)
+                        + vt.get("inofensivos", 0)
+                        + vt.get("sin_detectar", 0)
+                    )
+                    if maliciosos > 0:
+                        return f"🔴 Malicioso ({maliciosos}/{total} motores)"
+                    return f"🟢 Limpio (0/{total} motores)"
+                return "⚪ Sin consultar"
+
+            df_payloads["Veredicto VirusTotal"] = [_veredicto_vt(p) for p in payloads[::-1]]
+
+            columnas_mostrar = ["timestamp", "nombre_archivo", "tamano_bytes", "Veredicto VirusTotal", "VirusTotal"]
             columnas_disponibles = [c for c in columnas_mostrar if c in df_payloads.columns]
             st.dataframe(
                 df_payloads[columnas_disponibles],
