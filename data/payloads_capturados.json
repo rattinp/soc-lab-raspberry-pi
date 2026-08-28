@@ -3414,5 +3414,32 @@
       "conocido": false,
       "mensaje": "Hash no encontrado en VirusTotal todavia"
     }
+  },
+  {
+    "timestamp": "2026-08-28 20:14:34",
+    "nombre_archivo": "redir_c3ef2899812c4722905f64c660fe0b92",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_c3ef2899812c4722905f64c660fe0b92",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    }
   }
 ]
