@@ -31,8 +31,8 @@ IPS_ENRIQUECIDAS_PATH = os.path.join(DATA_DIR, "ips_enriquecidas.json")
 PAYLOADS_PATH = os.path.join(DATA_DIR, "payloads_capturados.json")
 ESTADO_HW_PATH = os.path.join(DATA_DIR, "estado_hardware.json")
 
-# --- Estado del hardware ---
-col1, col2, col3 = st.columns(3)
+# --- Estado del hardware + métricas principales ---
+col1, col2, col3, col4, col5 = st.columns(5)
 
 if os.path.exists(ESTADO_HW_PATH):
     try:
@@ -50,6 +50,25 @@ if os.path.exists(ESTADO_HW_PATH):
         st.info("Estado de hardware no disponible todavía.")
 else:
     st.info("Estado de hardware no disponible todavía.")
+
+# Total de eventos e IPs únicas, calculados ya acá arriba para que se vean
+# junto con el resto de las métricas principales (igual que en el dashboard local)
+_total_eventos = "N/A"
+_ips_unicas = "N/A"
+if os.path.exists(HISTORIAL_PATH):
+    try:
+        with open(HISTORIAL_PATH, "r") as f:
+            _datos_preview = json.load(f)
+        _total_eventos = len(_datos_preview)
+        _ips_vistas = {e.get("ip_origen") for e in _datos_preview if e.get("ip_origen")}
+        _ips_unicas = len(_ips_vistas)
+    except Exception:
+        pass
+
+with col4:
+    st.metric("🚨 Total de Eventos", _total_eventos)
+with col5:
+    st.metric("🌍 IPs Únicas", _ips_unicas)
 
 st.markdown("---")
 
@@ -94,15 +113,8 @@ if os.path.exists(HISTORIAL_PATH):
         if not df.empty:
             df = df.iloc[::-1].reset_index(drop=True)
 
-            c1, c2, c3 = st.columns(3)
-            with c1:
-                st.metric("🚨 Total de Eventos Capturados", len(df))
-            with c2:
-                if "ip_origen" in df.columns:
-                    st.metric("🌍 IPs Únicas", df["ip_origen"].nunique())
-            with c3:
-                if "servicio" in df.columns:
-                    st.metric("🎯 Protocolo Más Atacado", df["servicio"].value_counts().idxmax())
+            if "servicio" in df.columns:
+                st.metric("🎯 Protocolo Más Atacado", df["servicio"].value_counts().idxmax())
 
             st.markdown("---")
             st.write("### 📊 Estadísticas de Ataques")
