@@ -3403,5 +3403,16 @@
         "known-distributor"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-28 18:24:17",
+    "nombre_archivo": "8adc37b385e426b810f4074d6ae57537ae2e460802d385d9c66da2034ff8c87f",
+    "tamano_bytes": 1608,
+    "sha256": "8adc37b385e426b810f4074d6ae57537ae2e460802d385d9c66da2034ff8c87f",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/8adc37b385e426b810f4074d6ae57537ae2e460802d385d9c66da2034ff8c87f",
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    }
   }
 ]
