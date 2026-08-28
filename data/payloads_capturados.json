@@ -2729,5 +2729,360 @@
       "conocido": false,
       "mensaje": "Hash no encontrado en VirusTotal todavia"
     }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:35",
+    "nombre_archivo": "redir_b3c8a8121339464685d3a6b85f5f1084",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_b3c8a8121339464685d3a6b85f5f1084",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:42",
+    "nombre_archivo": "redir_7ab7be730e8546fd8014104ae8e7eeae",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_7ab7be730e8546fd8014104ae8e7eeae",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:43",
+    "nombre_archivo": "redir_9fdf746d6f3641a0a3b6f9ab878da8a0",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_9fdf746d6f3641a0a3b6f9ab878da8a0",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:45",
+    "nombre_archivo": "redir_ea3dbc234af142ad83563cb0a64a44b5",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_ea3dbc234af142ad83563cb0a64a44b5",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:47",
+    "nombre_archivo": "redir_65ffe87440fa4d71a70fde509d0539f8",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_65ffe87440fa4d71a70fde509d0539f8",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:48",
+    "nombre_archivo": "redir_a4d84ff9165c4305ab5466de21cb9956",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_a4d84ff9165c4305ab5466de21cb9956",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:50",
+    "nombre_archivo": "redir_d3eb5919504e45b89ae5dc0bb24bcd93",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_d3eb5919504e45b89ae5dc0bb24bcd93",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:52",
+    "nombre_archivo": "redir_0df0a9d93485441ea163a1d3e5212daf",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_0df0a9d93485441ea163a1d3e5212daf",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:53",
+    "nombre_archivo": "redir_894b5751c95d4ab6a95f4ada9290f393",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_894b5751c95d4ab6a95f4ada9290f393",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:55",
+    "nombre_archivo": "redir_34e7eef0e6b64fc6b77069d2c76d5643",
+    "tamano_bytes": 9,
+    "sha256": "4af5a5c98ad132095c6fbe7b02c242153a190a01cc321e50a916a0ca46fbaa62",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_34e7eef0e6b64fc6b77069d2c76d5643",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": ".nippon",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:57",
+    "nombre_archivo": "redir_659e8481da99495791917ca2542e0dcb",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_659e8481da99495791917ca2542e0dcb",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:37:59",
+    "nombre_archivo": "redir_1f70bcd9aa194eaa96048b5a6d9d3a89",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_1f70bcd9aa194eaa96048b5a6d9d3a89",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-28 01:38:00",
+    "nombre_archivo": "redir_a22fb87ae0bc40e794cc9b2c298ac618",
+    "tamano_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_a22fb87ae0bc40e794cc9b2c298ac618",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "android-cts-7.1_r6-linux_x86-arm.zip",
+      "tipo": "unknown",
+      "tags": [
+        "nsrl",
+        "attachment",
+        "trusted",
+        "zero-filled",
+        "via-tor",
+        "software-collection",
+        "runtime-modules",
+        "known-distributor",
+        "direct-cpu-clock-access",
+        "legit"
+      ]
+    }
   }
 ]
