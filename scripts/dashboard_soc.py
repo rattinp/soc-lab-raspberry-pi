@@ -13,7 +13,7 @@ st.subheader("Análisis de incidentes en tiempo real procesados localmente con L
 auto_refresh = st.sidebar.checkbox("🔄 Auto-actualizar cada 10s", value=False)
 st.sidebar.caption("Si está activo, la página se recarga sola.")
 
-# --- Sección de Hardware (Métricas arriba en tiempo real) ---
+# --- Sección de Hardware ---
 col1, col2, col3, col4 = st.columns(4)
 
 try:
@@ -26,10 +26,7 @@ try:
     throttled_raw = subprocess.check_output(["vcgencmd", "get_throttled"], text=True)
     throttled_hex = throttled_raw.strip().split("=")[1]
     throttled_val = int(throttled_hex, 16)
-    if throttled_val == 0:
-        throttled_status = "✅ OK"
-    else:
-        throttled_status = f"⚠️ {throttled_hex}"
+    throttled_status = "✅ OK" if throttled_val == 0 else f"⚠️ {throttled_hex}"
 except Exception:
     throttled_status = "N/A"
 
@@ -44,8 +41,12 @@ with col4:
 
 st.markdown("---")
 
-# --- Cargar base de datos de incidentes ---
+# --- Cargar incidentes ---
 HISTORIAL_PATH = os.path.expanduser("~/incidentes.json")
+IPS_ENRIQUECIDAS_PATH = os.path.expanduser("~/ips_enriquecidas.json")
+PAYLOADS_PATH = os.path.expanduser("~/payloads_capturados.json")
+
+df = pd.DataFrame()
 
 if os.path.exists(HISTORIAL_PATH):
     try:
@@ -54,10 +55,8 @@ if os.path.exists(HISTORIAL_PATH):
         df = pd.DataFrame(datos)
 
         if not df.empty:
-            # Reversar para ver los ataques más recientes primero
             df = df.iloc[::-1].reset_index(drop=True)
 
-            # --- Métricas rápidas de ataques ---
             c1, c2, c3 = st.columns(3)
             with c1:
                 st.metric(label="🚨 Total de Eventos Capturados", value=len(df))
@@ -70,16 +69,12 @@ if os.path.exists(HISTORIAL_PATH):
                     st.metric(label="🎯 Protocolo Más Atacado", value=servicio_top)
 
             st.markdown("---")
-
-            # --- Estadísticas agregadas ---
             st.write("### 📊 Estadísticas de Ataques")
             e1, e2 = st.columns(2)
-
             with e1:
                 st.write("**Ataques por Protocolo**")
                 if "servicio" in df.columns:
                     st.bar_chart(df["servicio"].value_counts())
-
             with e2:
                 st.write("**Top 10 IPs Atacantes**")
                 if "ip_origen" in df.columns:
@@ -89,36 +84,150 @@ if os.path.exists(HISTORIAL_PATH):
             if "comando" in df.columns:
                 st.bar_chart(df["comando"].value_counts().head(10))
 
-            st.markdown("---")
-
-            # --- Historial en vivo ---
-            st.write("### 🕒 Historial Reciente de Ataques")
-            st.dataframe(df, use_container_width=True)
-
-            # --- Último análisis IA ---
-            st.write("### 🔍 Detalle del Último Análisis de la IA")
-            ultimo = df.iloc[0]
-            comando_txt = ultimo.get("comando", "N/A")
-            analisis_txt = ultimo.get("analisis", "N/A")
-            ip_txt = ultimo.get("ip_origen", "N/A")
-            st.info(
-                f"**IP de origen:** `{ip_txt}`\n\n"
-                f"**Comando ejecutado:** `{comando_txt}`\n\n"
-                f"**Diagnóstico de Llama 3.2:** {analisis_txt}"
-            )
-        else:
-            st.info("⌛ El archivo de incidentes existe pero está vacío. Esperando el primer ataque...")
-
     except Exception as e:
-        st.error(f"Error al procesar los datos: {e}")
+        st.error(f"Error al procesar incidentes: {e}")
 else:
     st.info("⌛ Esperando el primer ataque para poblar el mapa de datos...")
+
+st.markdown("---")
+
+# --- NUEVO: Geolocalización y reputación de IPs (AbuseIPDB) ---
+st.write("### 🌎 Geolocalización y Reputación de IPs Atacantes")
+
+if os.path.exists(IPS_ENRIQUECIDAS_PATH):
+    try:
+        with open(IPS_ENRIQUECIDAS_PATH, "r") as f:
+            ips_data = json.load(f)
+
+        if ips_data:
+            filas = []
+            mapa_puntos = []
+
+            for ip, info in ips_data.items():
+                abuse = info.get("abuseipdb", {})
+                geo = info.get("geolocalizacion", {})
+
+                filas.append({
+                    "IP": ip,
+                    "País": geo.get("pais", "N/A"),
+                    "Ciudad": geo.get("ciudad", "N/A"),
+                    "ISP / Org": abuse.get("isp") or geo.get("org", "N/A"),
+                    "Score Abuso (%)": abuse.get("abuse_confidence_score", "N/A"),
+                    "Reportes Previos": abuse.get("total_reports", "N/A"),
+                    "Tipo de Uso": abuse.get("usage_type", "N/A"),
+                })
+
+                lat = geo.get("lat")
+                lon = geo.get("lon")
+                if lat is not None and lon is not None:
+                    mapa_puntos.append({"lat": lat, "lon": lon})
+
+            df_ips = pd.DataFrame(filas)
+
+            g1, g2 = st.columns([2, 1])
+            with g1:
+                st.write("**Detalle por IP**")
+                st.dataframe(df_ips, width='stretch')
+            with g2:
+                if mapa_puntos:
+                    st.write("**Ubicación aproximada**")
+                    st.map(pd.DataFrame(mapa_puntos), zoom=1)
+
+            r1, r2 = st.columns(2)
+            with r1:
+                score_promedio = df_ips["Score Abuso (%)"].replace("N/A", pd.NA).dropna().astype(float).mean()
+                if pd.notna(score_promedio):
+                    st.metric("Score de Abuso Promedio", f"{score_promedio:.0f}%")
+            with r2:
+                st.write("**Países de origen**")
+                st.bar_chart(df_ips["País"].value_counts())
+        else:
+            st.info("El archivo de IPs enriquecidas está vacío todavía.")
+    except Exception as e:
+        st.error(f"Error al procesar ips_enriquecidas.json: {e}")
+else:
+    st.info("⌛ Todavía no se corrió el enriquecimiento de IPs (enriquecer_ips.py).")
+
+st.markdown("---")
+
+# --- NUEVO: Payloads capturados ---
+st.write("### 🎯 Payloads Reales Capturados")
+
+if os.path.exists(PAYLOADS_PATH):
+    try:
+        with open(PAYLOADS_PATH, "r") as f:
+            payloads = json.load(f)
+
+        if payloads:
+            st.metric("Total de Payloads Capturados", len(payloads))
+
+            df_payloads = pd.DataFrame(payloads).iloc[::-1].reset_index(drop=True)
+            df_payloads["VirusTotal"] = df_payloads["sha256"].apply(
+                lambda h: f"https://www.virustotal.com/gui/file/{h}"
+            )
+
+            def _veredicto_vt(fila):
+                vt = fila.get("virustotal") if isinstance(fila, dict) else None
+                if not isinstance(vt, dict):
+                    return "⚪ Sin consultar"
+                if vt.get("error"):
+                    return "⚪ Sin consultar (API no configurada)"
+                if vt.get("conocido") is False:
+                    return "🟡 Hash no visto antes"
+                if vt.get("conocido") is True:
+                    maliciosos = vt.get("maliciosos", 0)
+                    total = (
+                        maliciosos
+                        + vt.get("sospechosos", 0)
+                        + vt.get("inofensivos", 0)
+                        + vt.get("sin_detectar", 0)
+                    )
+                    if maliciosos > 0:
+                        return f"🔴 Malicioso ({maliciosos}/{total} motores)"
+                    return f"🟢 Limpio (0/{total} motores)"
+                return "⚪ Sin consultar"
+
+            df_payloads["Veredicto VirusTotal"] = payloads[::-1]
+            df_payloads["Veredicto VirusTotal"] = [
+                _veredicto_vt(p) for p in payloads[::-1]
+            ]
+
+            st.dataframe(
+                df_payloads[["timestamp", "nombre_archivo", "tamano_bytes", "Veredicto VirusTotal", "VirusTotal"]],
+                width='stretch',
+                column_config={
+                    "VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis")
+                },
+            )
+        else:
+            st.info("Todavía no se capturó ningún payload real. La vigilancia sigue activa.")
+    except Exception as e:
+        st.error(f"Error al procesar payloads_capturados.json: {e}")
+else:
+    st.info("⌛ Esperando el primer payload real capturado por el honeypot...")
+
+st.markdown("---")
+
+# --- Último análisis IA (si hay incidentes) ---
+if not df.empty:
+    st.write("### 🔍 Detalle del Último Análisis de la IA")
+    ultimo = df.iloc[0]
+    comando_txt = ultimo.get("comando", "N/A")
+    analisis_txt = ultimo.get("analisis", "N/A")
+    ip_txt = ultimo.get("ip_origen", "N/A")
+    st.info(
+        f"**IP de origen:** `{ip_txt}`\n\n"
+        f"**Comando ejecutado:** `{comando_txt}`\n\n"
+        f"**Diagnóstico de Llama 3.2:** {analisis_txt}"
+    )
+
+    st.write("### 🕒 Historial Reciente de Ataques")
+    st.dataframe(df, width='stretch')
 
 # Botón manual de actualización
 if st.button("🔄 Actualizar Panel"):
     st.rerun()
 
-# Auto-refresh (si está activado)
 if auto_refresh:
     time.sleep(10)
     st.rerun()
