@@ -84,6 +84,20 @@ if os.path.exists(HISTORIAL_PATH):
             if "comando" in df.columns:
                 st.bar_chart(df["comando"].value_counts().head(10))
 
+            # --- NUEVO: Mapa de calor por hora del dia ---
+            if "timestamp" in df.columns:
+                st.markdown("---")
+                st.write("### 🕐 ¿A qué hora atacan más?")
+                try:
+                    horas = pd.to_datetime(df["timestamp"], format="%Y-%m-%d %H:%M:%S").dt.hour
+                    conteo_horas = horas.value_counts().reindex(range(24), fill_value=0)
+                    conteo_horas.index = [f"{h:02d}h" for h in conteo_horas.index]
+                    st.bar_chart(conteo_horas)
+                    hora_pico = horas.value_counts().idxmax()
+                    st.caption(f"Hora con más actividad: {hora_pico:02d}:00 (hora del servidor)")
+                except Exception:
+                    st.info("No se pudo calcular el mapa de calor horario.")
+
             # --- NUEVO: MITRE ATT&CK + Severidad ---
             if "mitre_tactic" in df.columns:
                 st.markdown("---")
@@ -116,6 +130,48 @@ if os.path.exists(HISTORIAL_PATH):
                         )
                 else:
                     st.info("Todavía no hay eventos con clasificación MITRE (se completa con la versión actualizada del analista).")
+
+            # --- NUEVO: Costo estimado del pipeline de IA ---
+            st.markdown("---")
+            st.write("### 💰 Costo Estimado del Análisis con IA")
+            try:
+                # Solo contamos los eventos que realmente dispararon una consulta
+                # a la API (no los que el anti-rafaga omitio)
+                analizados = df[~df["analisis"].astype(str).str.startswith("[Repetido")]
+                cantidad_analizados = len(analizados)
+
+                # Estimacion aproximada de tokens por consulta (prompt + respuesta JSON).
+                # Es una aproximacion, no una medicion exacta de la API.
+                TOKENS_ENTRADA_APROX = 150   # prompt del sistema + comando
+                TOKENS_SALIDA_APROX = 120    # respuesta JSON estructurada
+
+                # Precios de Claude Haiku 4.5 (USD por millon de tokens)
+                PRECIO_ENTRADA_POR_MILLON = 1.0
+                PRECIO_SALIDA_POR_MILLON = 5.0
+
+                tokens_entrada_total = cantidad_analizados * TOKENS_ENTRADA_APROX
+                tokens_salida_total = cantidad_analizados * TOKENS_SALIDA_APROX
+
+                costo_estimado = (
+                    (tokens_entrada_total / 1_000_000) * PRECIO_ENTRADA_POR_MILLON
+                    + (tokens_salida_total / 1_000_000) * PRECIO_SALIDA_POR_MILLON
+                )
+
+                co1, co2, co3 = st.columns(3)
+                with co1:
+                    st.metric("Consultas reales a la API", cantidad_analizados)
+                with co2:
+                    st.metric("Tokens estimados (total)", f"{tokens_entrada_total + tokens_salida_total:,}")
+                with co3:
+                    st.metric("Costo estimado (USD)", f"${costo_estimado:.4f}")
+
+                st.caption(
+                    "Estimación aproximada basada en ~150 tokens de entrada y ~120 de salida "
+                    "por consulta (Claude Haiku 4.5: $1/millón entrada, $5/millón salida). "
+                    "No incluye las consultas omitidas por la protección anti-ráfaga."
+                )
+            except Exception:
+                st.info("No se pudo calcular el costo estimado (faltan datos de análisis).")
 
     except Exception as e:
         st.error(f"Error al procesar incidentes: {e}")

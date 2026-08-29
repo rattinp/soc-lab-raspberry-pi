@@ -18,23 +18,37 @@ import requests
 API_KEY = os.environ.get("HYBRID_ANALYSIS_API_KEY")
 BASE_URL = "https://www.hybrid-analysis.com/api/v2"
 
-# Entorno de analisis: 300 = Linux (Ubuntu 16.04, 64 bit) - el mas relevante
-# para malware de honeypot SSH/Telnet tipo Mirai/Gafgyt
-ENVIRONMENT_ID = 300
+# Entorno de analisis: 330 = Linux (Ubuntu 24.04, 64 bit) - confirmado via
+# GET /system/environments contra la API key real (ids anteriores como 300/310
+# ya no son validos, la lista de entornos se actualizo)
+ENVIRONMENT_ID = 330
 
 HEADERS = {
     "api-key": API_KEY,
     "user-agent": "Falcon Sandbox",
+    "accept": "application/json",
 }
 
 
 def buscar_por_hash(sha256):
-    """Busca si el hash ya fue analizado antes por la comunidad (no gasta cuota)."""
+    """Busca si el hash ya fue analizado antes por la comunidad (no gasta cuota).
+    Usa GET /search/hash (el metodo POST esta deprecado)."""
     url = f"{BASE_URL}/search/hash"
-    resp = requests.post(url, headers=HEADERS, data={"hash": sha256}, timeout=20)
+    headers_get = {**HEADERS}
+    resp = requests.get(url, headers=headers_get, params={"hash": sha256}, timeout=20)
+    if resp.status_code >= 400:
+        print(f"    Respuesta cruda del servidor: {resp.text[:500]}")
     resp.raise_for_status()
     resultados = resp.json()
     return resultados
+
+
+def listar_entornos():
+    """Consulta los entornos de analisis disponibles (GET /system/environments)."""
+    url = f"{BASE_URL}/system/environments"
+    resp = requests.get(url, headers=HEADERS, timeout=20)
+    resp.raise_for_status()
+    return resp.json()
 
 
 def subir_archivo(filepath):
@@ -43,7 +57,26 @@ def subir_archivo(filepath):
     with open(filepath, "rb") as f:
         files = {"file": (os.path.basename(filepath), f)}
         data = {"environment_id": ENVIRONMENT_ID}
-        resp = requests.post(url, headers=HEADERS, files=files, data=data, timeout=60)
+        headers_con_accept = {**HEADERS, "accept": "application/json"}
+        resp = requests.post(
+            url,
+            headers=headers_con_accept,
+            files=files,
+            data=data,
+            timeout=60,
+            allow_redirects=False,  # evitar el redirect www <-> sin-www que rompe el POST
+        )
+    if resp.status_code in (301, 302, 307, 308):
+        # Si redirige, seguimos manualmente a la URL indicada, preservando metodo y body
+        nueva_url = resp.headers.get("Location")
+        print(f"    (siguiendo redirect a: {nueva_url})")
+        with open(filepath, "rb") as f:
+            files = {"file": (os.path.basename(filepath), f)}
+            resp = requests.post(
+                nueva_url, headers=headers_con_accept, files=files, data=data, timeout=60
+            )
+    if resp.status_code >= 400:
+        print(f"    Respuesta cruda del servidor: {resp.text[:500]}")
     resp.raise_for_status()
     return resp.json()
 

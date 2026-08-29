@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Analista IA - Honeypot Cowrie + Claude API + Telemetria termica (Argon ONE V3)
-Version con clasificacion estructurada (tecnica MITRE ATT&CK + severidad) y
-deteccion de comandos genuinamente nuevos (para no saturar Telegram con
-alertas de la misma tecnica repetida).
+Version con clasificacion estructurada (tecnica MITRE ATT&CK + severidad),
+deteccion de comandos genuinamente nuevos, y circuit breaker ante rafagas
+sostenidas (protege la Pi si vuelve a entrar un ataque masivo de fuerza bruta).
 
 Incluye proteccion anti-rafaga: si el mismo comando+IP se repite muchas veces
 en poco tiempo, no dispara una consulta a la API por cada uno.
@@ -32,6 +32,27 @@ IP_REGEX = re.compile(r"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b")
 # --- Proteccion anti-rafaga (mismo comando+IP en poco tiempo) ---
 VENTANA_DEDUPE_SEGUNDOS = 60
 ultimo_visto = {}  # (ip, comando) -> timestamp de la ultima consulta real
+
+# --- Circuit breaker: si hay demasiados eventos por minuto sostenidos,
+#     se pausa el analisis de IA (se sigue logueando crudo, sin gastar
+#     tokens/CPU) hasta que el ritmo baje. Evita repetir la saturacion
+#     que casi cuelga la Pi con una rafaga de fuerza bruta. ---
+CIRCUIT_BREAKER_UMBRAL_EVENTOS = 30      # eventos reales (no dedupeados) en la ventana
+CIRCUIT_BREAKER_VENTANA_SEGUNDOS = 60    # ventana deslizante para contar eventos
+CIRCUIT_BREAKER_PAUSA_SEGUNDOS = 120     # cuanto tiempo se mantiene abierto el breaker
+
+timestamps_eventos_recientes = []  # timestamps de consultas reales a la API
+circuit_breaker_abierto_hasta = 0  # 0 = cerrado (analisis normal)
+
+# --- Limite propio para alertas de Telegram (independiente del circuit
+#     breaker de la API). Un atacante que genera muchos comandos con texto
+#     DISTINTO cada vez (ej. contadores incrementales) puede disparar una
+#     alerta de "comando nuevo" por cada uno, inundando Telegram incluso
+#     antes de que el circuit breaker de la API llegue a activarse. ---
+ALERTA_TELEGRAM_MAX_POR_VENTANA = 5
+ALERTA_TELEGRAM_VENTANA_SEGUNDOS = 60
+timestamps_alertas_telegram = []
+alertas_suprimidas_contador = 0  # cuantas se omitieron mientras estaba al limite
 
 client = anthropic.Anthropic()
 
@@ -66,6 +87,35 @@ def extraer_comando_real(linea):
 
 def detectar_servicio(linea):
     return "Telnet" if "telnet" in linea.lower() else "SSH"
+
+
+def puede_enviar_alerta_telegram():
+    """Rate limiter propio para Telegram: maximo N alertas por ventana de
+    tiempo, sin importar si cada comando es 'nuevo' o no. Evita que un
+    atacante con texto variable (contadores, timestamps en el comando, etc.)
+    inunde Telegram con una alerta por cada evento."""
+    global alertas_suprimidas_contador
+    ahora = time.time()
+
+    while timestamps_alertas_telegram and timestamps_alertas_telegram[0] < ahora - ALERTA_TELEGRAM_VENTANA_SEGUNDOS:
+        timestamps_alertas_telegram.pop(0)
+
+    if len(timestamps_alertas_telegram) >= ALERTA_TELEGRAM_MAX_POR_VENTANA:
+        alertas_suprimidas_contador += 1
+        return False
+
+    timestamps_alertas_telegram.append(ahora)
+
+    # Si veniamos suprimiendo alertas y ahora hay lugar de nuevo, avisamos
+    # cuantas se perdieron en el camino (una sola vez, no una por una)
+    if alertas_suprimidas_contador > 0:
+        enviar_alerta(
+            f"ℹ️ Se suprimieron {alertas_suprimidas_contador} alertas adicionales "
+            f"en los últimos {ALERTA_TELEGRAM_VENTANA_SEGUNDOS}s por exceso de volumen."
+        )
+        alertas_suprimidas_contador = 0
+
+    return True
 
 
 def cargar_comandos_vistos():
@@ -193,6 +243,41 @@ def procesar_linea(linea):
 
     ultimo_visto[clave] = ahora
 
+    # --- Circuit breaker: contar eventos reales en la ventana deslizante ---
+    global circuit_breaker_abierto_hasta
+    timestamps_eventos_recientes.append(ahora)
+    # Limpiar timestamps fuera de la ventana
+    while timestamps_eventos_recientes and timestamps_eventos_recientes[0] < ahora - CIRCUIT_BREAKER_VENTANA_SEGUNDOS:
+        timestamps_eventos_recientes.pop(0)
+
+    if circuit_breaker_abierto_hasta and ahora < circuit_breaker_abierto_hasta:
+        # El breaker sigue abierto: no consultamos a la IA, solo logueamos crudo
+        segundos_restantes = int(circuit_breaker_abierto_hasta - ahora)
+        print(f"🔴 [Circuit Breaker ACTIVO] Analisis pausado ({segundos_restantes}s restantes) - solo logueo crudo")
+        guardar_en_historial(
+            ip_origen, servicio, comando_limpio,
+            {"analisis": "[Circuit breaker activo - analisis de IA pausado por rafaga sostenida]"},
+            temperatura, throttled,
+        )
+        return
+
+    if len(timestamps_eventos_recientes) > CIRCUIT_BREAKER_UMBRAL_EVENTOS:
+        # Se supero el umbral: abrimos el breaker
+        circuit_breaker_abierto_hasta = ahora + CIRCUIT_BREAKER_PAUSA_SEGUNDOS
+        print(f"🔴 [Circuit Breaker] {len(timestamps_eventos_recientes)} eventos en {CIRCUIT_BREAKER_VENTANA_SEGUNDOS}s - PAUSANDO analisis por {CIRCUIT_BREAKER_PAUSA_SEGUNDOS}s")
+        enviar_alerta(
+            f"🔴 <b>CIRCUIT BREAKER ACTIVADO</b>\n"
+            f"Se detectaron {len(timestamps_eventos_recientes)} eventos en {CIRCUIT_BREAKER_VENTANA_SEGUNDOS}s.\n"
+            f"El análisis de IA se pausa por {CIRCUIT_BREAKER_PAUSA_SEGUNDOS}s para proteger la Pi.\n"
+            f"Cowrie sigue capturando normalmente, solo se pausa el análisis."
+        )
+        guardar_en_historial(
+            ip_origen, servicio, comando_limpio,
+            {"analisis": "[Circuit breaker activado - rafaga sostenida detectada]"},
+            temperatura, throttled,
+        )
+        return
+
     # --- Es la primera vez que vemos ESTE comando en TODA la historia? ---
     es_comando_nuevo = comando_limpio not in comandos_vistos_historico
     if es_comando_nuevo:
@@ -210,8 +295,9 @@ def procesar_linea(linea):
 
     guardar_en_historial(ip_origen, servicio, comando_limpio, analisis_dict, temperatura, throttled)
 
-    # --- Alerta por Telegram SOLO si es un comando genuinamente nuevo ---
-    if es_comando_nuevo:
+    # --- Alerta por Telegram SOLO si es un comando genuinamente nuevo,
+    #     y si no superamos el limite de alertas por minuto ---
+    if es_comando_nuevo and puede_enviar_alerta_telegram():
         mensaje = (
             f"🆕 <b>COMANDO NUEVO DETECTADO</b>\n"
             f"IP: {ip_origen} | Servicio: {servicio}\n"
