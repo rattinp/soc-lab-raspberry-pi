@@ -67,26 +67,6 @@
     }
   },
   {
-    "timestamp": "2026-08-25 19:42:13",
-    "nombre_archivo": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
-    "tamano_bytes": 12615680,
-    "sha256": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
-    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
-    "virustotal": {
-      "conocido": true,
-      "maliciosos": 35,
-      "sospechosos": 0,
-      "inofensivos": 0,
-      "sin_detectar": 29,
-      "nombre_sugerido": "N/A",
-      "tipo": "ELF",
-      "tags": [
-        "64bits",
-        "elf"
-      ]
-    }
-  },
-  {
     "timestamp": "2026-08-25 19:57:59",
     "nombre_archivo": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "tamano_bytes": 1,
@@ -4056,6 +4036,30 @@
         "via-tor",
         "software-collection"
       ]
+    }
+  },
+  {
+    "timestamp": "2026-08-29 01:34:05",
+    "nombre_archivo": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "tamano_bytes": 12615680,
+    "sha256": "a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/a4f7c902f1c85f50423d7e674276e0d71d2f8f012c450ef91b4cb779ebb6018e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 29,
+      "nombre_sugerido": "N/A",
+      "tipo": "ELF",
+      "tags": [
+        "64bits",
+        "elf"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
     }
   }
 ]
