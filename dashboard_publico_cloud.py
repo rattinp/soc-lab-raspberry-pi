@@ -182,6 +182,65 @@ def grafico_mapa_ataques(ips_data):
     return fig
 
 
+def grafico_heatmap_mitre(df):
+    """Heatmap real Tactica x Severidad, estilo SIEM (matriz de colores),
+    en vez de dos graficos separados de barras/dona."""
+    df_v = df[df["mitre_tactic"].notna() & (df["mitre_tactic"] != "N/A")]
+    if df_v.empty:
+        return None
+
+    orden_sev = ["Baja", "Media", "Alta", "Critica"]
+    tabla = pd.crosstab(df_v["mitre_tactic"], df_v.get("severidad", "N/A"))
+    for s in orden_sev:
+        if s not in tabla.columns:
+            tabla[s] = 0
+    tabla = tabla[[s for s in orden_sev if s in tabla.columns]]
+
+    fig = go.Figure(data=go.Heatmap(
+        z=tabla.values,
+        x=tabla.columns.tolist(),
+        y=tabla.index.tolist(),
+        colorscale=[[0, "#1a1d2b"], [0.5, "#f97316"], [1, "#ef4444"]],
+        showscale=False,
+        text=tabla.values,
+        texttemplate="%{text}",
+        textfont=dict(color=COLOR_TEXTO),
+    ))
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(color=COLOR_TEXTO_SEC),
+        margin=dict(t=10, b=10, l=10, r=10),
+        height=max(220, 34 * len(tabla.index)),
+        xaxis=dict(side="top"),
+    )
+    return fig
+
+
+def tabla_cola_alertas(df, n=15):
+    """Cola de alertas estilo ticket de SIEM: tabla compacta con severidad
+    coloreada, en vez de un feed de tarjetas que hay que scrollear."""
+    cols = ["timestamp", "ip_origen", "servicio", "severidad", "mitre_tactic", "mitre_technique", "comando"]
+    cols = [c for c in cols if c in df.columns]
+    tabla = df.head(n)[cols].copy()
+    tabla.columns = [
+        {"timestamp": "Hora", "ip_origen": "IP", "servicio": "Servicio",
+         "severidad": "Severidad", "mitre_tactic": "Táctica", "mitre_technique": "Técnica",
+         "comando": "Comando"}.get(c, c) for c in tabla.columns
+    ]
+
+    def _color_severidad(val):
+        colores = {"Critica": "#ef4444", "Alta": "#f97316", "Media": "#f5c518", "Baja": "#34d399"}
+        color = colores.get(val, "#4b5163")
+        return f"background-color: {color}; color: #0d0f17; font-weight: 600;"
+
+    styler = tabla.style
+    if "Severidad" in tabla.columns:
+        styler = styler.applymap(_color_severidad, subset=["Severidad"])
+    styler = styler.set_properties(**{"background-color": COLOR_TARJETA, "color": COLOR_TEXTO})
+    return styler
+
+
 # --- Rutas relativas al repo ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -353,56 +412,38 @@ with col_der:
 st.markdown("---")
 
 # =========================================================
-#  ACTIVIDAD RECIENTE: feed en vivo con color por severidad + explicacion MITRE
+#  TOP THREAT + COLA DE ALERTAS (estilo ticket de SIEM real)
 # =========================================================
-with st.container(border=True):
-    st.markdown("#### 📡 Actividad reciente")
-    st.caption("Últimos comandos capturados, con clasificación MITRE ATT&CK cuando está disponible.")
+if not df.empty:
+    with st.container(border=True):
+        top_col1, top_col2 = st.columns([1, 2])
+        with top_col1:
+            st.markdown("#### 🎯 Amenaza principal")
+            if "mitre_tactic" in df.columns:
+                df_v = df[df["mitre_tactic"].notna() & (df["mitre_tactic"] != "N/A")]
+                if not df_v.empty:
+                    tactica_top = df_v["mitre_tactic"].value_counts().idxmax()
+                    cant_top = df_v["mitre_tactic"].value_counts().max()
+                    st.markdown(f"### {tactica_top}")
+                    st.caption(f"{cant_top} eventos detectados con esta táctica")
+                else:
+                    st.info("Sin clasificación MITRE todavía.")
+            else:
+                st.info("Sin datos suficientes.")
+        with top_col2:
+            st.markdown("#### 🗺️ Heatmap MITRE ATT&CK (Táctica × Severidad)")
+            fig_heatmap = grafico_heatmap_mitre(df) if "mitre_tactic" in df.columns else None
+            if fig_heatmap:
+                st.plotly_chart(fig_heatmap, use_container_width=True)
+            else:
+                st.info("Todavía no hay eventos con clasificación MITRE.")
 
-    COLOR_SEVERIDAD = {
-        "Critica": "#ef4444",
-        "Alta": "#f97316",
-        "Media": "#f5c518",
-        "Baja": "#34d399",
-    }
+    st.markdown("---")
 
-    if not df.empty:
-        for _, evento in df.head(12).iterrows():
-            severidad = evento.get("severidad", "N/A")
-            color = COLOR_SEVERIDAD.get(severidad, "#4b5163")
-            ip = evento.get("ip_origen", "N/A")
-            servicio = evento.get("servicio", "N/A")
-            comando = str(evento.get("comando", ""))[:140]
-            tactica = evento.get("mitre_tactic", None)
-            tecnica = evento.get("mitre_technique", None)
-            analisis = str(evento.get("analisis", ""))[:220]
-            timestamp = evento.get("timestamp", "")
-
-            linea_mitre = ""
-            if tactica and tactica != "N/A":
-                linea_mitre = f'<div style="font-size:0.8em; color:{color}; margin-top:4px;">🗺️ {tactica} — {tecnica}</div>'
-
-            st.markdown(
-                f"""
-                <div style="border-left: 3px solid {color}; background-color: {COLOR_TARJETA};
-                            border-radius: 6px; padding: 10px 14px; margin-bottom: 8px;">
-                    <div style="display:flex; justify-content:space-between; font-size:0.8em; color:{COLOR_TEXTO_SEC};">
-                        <span><b style="color:{COLOR_TEXTO};">{ip}</b> · {servicio}</span>
-                        <span>{timestamp} {f'· <b style="color:{color};">{severidad}</b>' if severidad != 'N/A' else ''}</span>
-                    </div>
-                    <div style="font-family: monospace; font-size:0.85em; color:{COLOR_TEXTO}; margin-top:4px;">
-                        $ {comando}
-                    </div>
-                    {linea_mitre}
-                    <div style="font-size:0.82em; color:{COLOR_TEXTO_SEC}; margin-top:4px;">
-                        {analisis}
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-    else:
-        st.info("Todavía no hay actividad registrada.")
+    with st.container(border=True):
+        st.markdown("#### 📋 Cola de alertas")
+        st.caption("Últimos eventos capturados, formato consola SIEM.")
+        st.dataframe(tabla_cola_alertas(df, n=15), width='stretch', hide_index=True)
 
 st.markdown("---")
 
@@ -428,33 +469,21 @@ if not df.empty:
                     use_container_width=True,
                 )
 
-    h1, h2 = st.columns(2)
+    h1 = st.container(border=True)
     with h1:
-        with st.container(border=True):
-            if "timestamp" in df.columns:
-                try:
-                    horas = pd.to_datetime(df["timestamp"], format="%Y-%m-%d %H:%M:%S").dt.hour
-                    conteo_horas = horas.value_counts().reindex(range(24), fill_value=0)
-                    conteo_horas.index = [f"{h:02d}h" for h in conteo_horas.index]
-                    st.plotly_chart(
-                        grafico_barras(conteo_horas, "¿A qué hora atacan más?", PALETA[3]),
-                        use_container_width=True,
-                    )
-                    hora_pico = horas.value_counts().idxmax()
-                    st.caption(f"Hora con más actividad: {hora_pico:02d}:00 (hora del servidor)")
-                except Exception:
-                    st.info("No se pudo calcular el mapa de calor horario.")
-    with h2:
-        with st.container(border=True):
-            if "mitre_tactic" in df.columns:
-                df_mitre = df[df["mitre_tactic"].notna() & (df["mitre_tactic"] != "N/A")]
-                if not df_mitre.empty:
-                    st.plotly_chart(
-                        grafico_donut(df_mitre["mitre_tactic"].value_counts(), "Tácticas MITRE ATT&CK"),
-                        use_container_width=True,
-                    )
-                else:
-                    st.info("Todavía no hay eventos con clasificación MITRE.")
+        if "timestamp" in df.columns:
+            try:
+                horas = pd.to_datetime(df["timestamp"], format="%Y-%m-%d %H:%M:%S").dt.hour
+                conteo_horas = horas.value_counts().reindex(range(24), fill_value=0)
+                conteo_horas.index = [f"{h:02d}h" for h in conteo_horas.index]
+                st.plotly_chart(
+                    grafico_barras(conteo_horas, "¿A qué hora atacan más?", PALETA[3]),
+                    use_container_width=True,
+                )
+                hora_pico = horas.value_counts().idxmax()
+                st.caption(f"Hora con más actividad: {hora_pico:02d}:00 (hora del servidor)")
+            except Exception:
+                st.info("No se pudo calcular el mapa de calor horario.")
 
     if "mitre_technique" in df.columns:
         df_mitre = df[df["mitre_technique"].notna() & (df["mitre_technique"] != "N/A")]
