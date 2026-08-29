@@ -31,22 +31,32 @@ Raspberry Pi 5 (Argon ONE V3, Raspberry Pi OS Lite 64-bit)
    │
    ├── analista_ia_claude.py (systemd: analista.service)
    │     lee logs de Cowrie en vivo → detecta comandos reales →
-   │     consulta la API de Claude (claude-haiku-4-5) →
-   │     protección anti-ráfaga (no re-consulta el mismo
-   │     comando+IP si se repite en <60s) →
+   │     consulta la API de Claude (claude-haiku-4-5) pidiendo
+   │     JSON estructurado (táctica/técnica MITRE ATT&CK + severidad) →
+   │     protección anti-ráfaga (dedupe 60s) + circuit breaker
+   │     (pausa el análisis si hay >30 eventos/60s) + rate limit
+   │     propio de Telegram (máx. 5 alertas/min) →
+   │     alerta SOLO en comandos genuinamente nuevos →
    │     registra temperatura/throttling → guarda en incidentes.json
    │
    ├── vigilar_payloads.py (systemd: vigilar-payloads.service)
-   │     detecta archivos nuevos en downloads/ → calcula SHA256 →
-   │     consulta VirusTotal → alerta por Telegram →
+   │     detecta archivos nuevos en downloads/ → escanea con
+   │     reglas YARA locales (Mirai, Gafgyt, XMRig, dropper) →
+   │     consulta VirusTotal → si VT no lo conoce, busca/sube a
+   │     Hybrid Analysis (análisis dinámico) → alerta por Telegram →
    │     guarda en payloads_capturados.json
    │
    ├── enriquecer_ips.py (manual/cron)
    │     IPs atacantes → AbuseIPDB (reputación) + ip-api.com
    │     (geolocalización) → ips_enriquecidas.json
    │
+   ├── backup_honeypi.sh (cron, cada 4h)
+   │     respaldo rotativo (máx. 48 copias) de los JSON principales
+   │
    ├── dashboard_soc.py (systemd: dashboard.service, Streamlit)
-   │     dashboard completo en la LAN, puerto 8501
+   │     dashboard completo en la LAN, puerto 8501 — incluye
+   │     heatmap MITRE ATT&CK, mapa de calor por hora del día,
+   │     y costo estimado del pipeline de IA
    │
    └── sincronizar_datos_github.sh (cron, cada 30 min)
          copia los JSON al repo de GitHub → dispara redeploy
@@ -61,25 +71,43 @@ Raspberry Pi 5 (Argon ONE V3, Raspberry Pi OS Lite 64-bit)
 | Script | Motor | Uso |
 |---|---|---|
 | `scripts/analista_ia_ollama.py` | Llama 3.2 (3B) local, Ollama | Versión original (Capítulo 1). Gratis, sin salir de la red, pero consume 100% CPU por respuesta. |
-| `scripts/analista_ia_claude.py` | Claude API (`claude-haiku-4-5`) | **Versión en producción actual.** Libera la Pi de la carga de inferencia; incluye protección anti-ráfaga. |
+| `scripts/analista_ia_claude.py` | Claude API (`claude-haiku-4-5`) | **Versión en producción actual.** Libera la Pi de la carga de inferencia. Clasifica cada comando con táctica/técnica MITRE ATT&CK y severidad (JSON estructurado). Incluye protección anti-ráfaga, circuit breaker por volumen, y rate limit propio de alertas Telegram. |
 | `scripts/comparar_modelos.py` | Ollama (Llama 3.2 vs modelo especializado) | Benchmark del Capítulo 2: comparación de rechazos y tiempos de respuesta. |
 | `scripts/comparar_whiterabbitneo.py` / `prueba_rapida_whiterabbitneo.py` | WhiteRabbitNeo (Ollama) | Benchmark del Capítulo 4: modelo sin guardrails, falla por throughput (1.85 tok/s en CPU). |
 | `scripts/generar_tabla_comparacion.py` | — | Genera la tabla Markdown comparativa a partir de los resultados de los benchmarks. |
 
 ---
 
+## Clasificación MITRE ATT&CK y protecciones anti-saturación
+
+Desde la última iteración, cada comando analizado por Claude devuelve un JSON estructurado con:
+- **Táctica MITRE ATT&CK** (Discovery, Persistence, Defense Evasion, etc.)
+- **Técnica específica** (ej. `T1057 - Process Discovery`)
+- **Severidad** (Baja / Media / Alta / Crítica)
+
+Esto permite armar un heatmap de tácticas en el dashboard, en vez de tener que leer cada análisis en texto libre.
+
+Dos capas de protección independientes evitan que una ráfaga de ataques sature la Pi o inunde las notificaciones:
+
+1. **Circuit breaker de análisis**: si hay más de 30 eventos reales en 60 segundos, se pausa el análisis de IA por 120 segundos (Cowrie sigue capturando normal, solo se detiene el consumo de tokens/CPU).
+2. **Rate limit de Telegram**: máximo 5 alertas de "comando nuevo" por minuto, independiente del circuit breaker — protege contra atacantes que generan texto variable (contadores, timestamps) que dispararía una alerta por cada evento aunque el circuit breaker de la API todavía no se haya activado.
+
+---
+
 ## Enriquecimiento y alertas
 
 - **`scripts/enriquecer_ips.py`**: consulta AbuseIPDB (score de abuso, ISP, tipo de uso) e ip-api.com (país, ciudad, lat/lon) para cada IP atacante única.
-- **`scripts/vigilar_payloads.py`**: vigila la carpeta de downloads de Cowrie, calcula SHA256 de cada archivo capturado, consulta VirusTotal automáticamente, y envía alerta por Telegram con el veredicto (motores que lo detectan, tags, nombre conocido).
-- **`scripts/telegram_notificar.py`**: módulo reusable para enviar mensajes por Telegram (usado por el vigilante de payloads).
-- **`scripts/subir_hybrid_analysis.py`**: sube payloads a Hybrid Analysis (Falcon Sandbox) para análisis dinámico completo — requiere API key con vetting aprobado para la función de subida.
+- **`scripts/vigilar_payloads.py`**: vigila la carpeta de downloads de Cowrie. Por cada archivo nuevo (mayor a 0 bytes): lo escanea con **reglas YARA locales** (`reglas_honeypi.yar` — detecta Mirai, Gafgyt, XMRig/criptominers, y patrones genéricos de dropper), calcula SHA256, consulta VirusTotal, y si VirusTotal no lo conoce, busca/sube automáticamente a **Hybrid Analysis** para análisis dinámico. Envía alerta por Telegram con el veredicto completo.
+- **`scripts/telegram_notificar.py`**: módulo reusable para enviar mensajes por Telegram.
+- **`scripts/subir_hybrid_analysis.py`**: CLI standalone para subir/consultar payloads en Hybrid Analysis (Falcon Sandbox) manualmente. Usa `GET /search/hash` (el POST está deprecado) y `environment_id=330` (Linux Ubuntu 24.04 64-bit — verificar el ID vigente con `GET /system/environments`, ya que la API los actualiza periódicamente).
+- **`reglas_honeypi.yar`**: reglas YARA básicas (no exhaustivas) como primer filtro local, gratis e instantáneo, antes de gastar cuota de APIs externas.
+- **`backup_honeypi.sh`**: respaldo rotativo de `incidentes.json`, `payloads_capturados.json`, `ips_enriquecidas.json` y `comandos_vistos.json` — pensado para cron cada 4 horas, con un máximo configurable de copias retenidas.
 
 ---
 
 ## Dashboards
 
-- **`scripts/dashboard_soc.py`** — dashboard local (Streamlit), accesible solo desde la LAN en el puerto 8501. Muestra temperatura/throttling, estadísticas de ataques, geolocalización con mapa, reputación de IPs, payloads capturados con veredicto de VirusTotal, e historial completo con el análisis de IA de cada evento.
+- **`scripts/dashboard_soc.py`** — dashboard local (Streamlit), accesible solo desde la LAN en el puerto 8501. Incluye: temperatura/throttling, estadísticas de ataques, **heatmap de tácticas MITRE ATT&CK y severidad**, **mapa de calor de ataques por hora del día**, **costo estimado del pipeline de IA** (en USD, basado en consultas reales), geolocalización con mapa, reputación de IPs, payloads capturados con veredicto de VirusTotal/YARA/Hybrid Analysis, e historial completo con el análisis de cada evento.
 - **`dashboard_publico_cloud.py`** — versión pública, desplegada en Streamlit Community Cloud, que lee los datos sincronizados desde este mismo repo (carpeta `data/`, actualizada cada 30 minutos por cron). Incluye una sección de "Casos Destacados" con los ataques más reveladores.
 
 ---
@@ -157,7 +185,7 @@ sudo chmod -R 777 ~/cowrie_logs/lib/cowrie/downloads/
 python3 -m venv ~/soc_env
 source ~/soc_env/bin/activate
 pip install --upgrade pip
-pip install anthropic ollama streamlit pandas requests
+pip install anthropic ollama streamlit pandas requests yara-python
 ```
 
 ### 5. Copiar los scripts y configurar las API keys
@@ -207,16 +235,18 @@ Reenviá los puertos 22 y 23 hacia la IP de la Pi. **No** reenvíes el 2222 (SSH
 │   └── parte1_articulo_soc_lab.md   # Artículo Capítulo 1
 └── scripts/
     ├── analista_ia_ollama.py        # Analista con Llama 3.2 local (original)
-    ├── analista_ia_claude.py        # Analista con Claude API (producción actual)
-    ├── dashboard_soc.py             # Dashboard local completo
-    ├── vigilar_payloads.py          # Captura + hash + VirusTotal + Telegram
+    ├── analista_ia_claude.py        # Analista con Claude API + MITRE ATT&CK + circuit breaker (producción actual)
+    ├── dashboard_soc.py             # Dashboard local completo (MITRE, heatmap horario, costo IA)
+    ├── vigilar_payloads.py          # Captura + YARA + VirusTotal + Hybrid Analysis + Telegram
+    ├── reglas_honeypi.yar           # Reglas YARA locales (Mirai, Gafgyt, XMRig, dropper)
     ├── telegram_notificar.py        # Módulo de alertas Telegram
     ├── enriquecer_ips.py            # AbuseIPDB + geolocalización
+    ├── backup_honeypi.sh            # Backup rotativo de los JSON principales
     ├── comparar_modelos.py          # Benchmark Llama vs modelo especializado
     ├── comparar_whiterabbitneo.py   # Benchmark WhiteRabbitNeo (14 comandos)
     ├── prueba_rapida_whiterabbitneo.py
     ├── generar_tabla_comparacion.py # Genera tabla Markdown de resultados
-    ├── subir_hybrid_analysis.py     # Integración con Hybrid Analysis
+    ├── subir_hybrid_analysis.py     # CLI de integración con Hybrid Analysis
     └── setup_soc_services.sh        # Instalador de servicios systemd
 ```
 
@@ -239,7 +269,14 @@ Reenviá los puertos 22 y 23 hacia la IP de la Pi. **No** reenvíes el 2222 (SSH
 - [x] Alertas en tiempo real por Telegram
 - [x] Migración de análisis a Claude API (con protección anti-ráfaga)
 - [x] Dashboard público en la nube, sincronizado automáticamente
-- [ ] Integración completa con Hybrid Analysis / sandbox dinámico (pendiente de vetting de API)
+- [x] Clasificación estructurada MITRE ATT&CK (táctica/técnica/severidad)
+- [x] Detección de comandos genuinamente nuevos (reduce fatiga de alertas)
+- [x] Reglas YARA locales como primer filtro gratis (Mirai, Gafgyt, XMRig, dropper)
+- [x] Integración funcional con Hybrid Analysis (búsqueda + subida automática)
+- [x] Circuit breaker ante ráfagas sostenidas + rate limit propio de Telegram
+- [x] Backup rotativo de los archivos de datos
+- [x] Mapa de calor de ataques por hora del día
+- [x] Costo estimado del pipeline de IA
 - [ ] Perfil de ataques Telnet (a la espera de tráfico real)
 - [ ] Evaluar un acelerador de hardware (Raspberry Pi AI HAT+ 2) o una placa con más RAM para correr modelos más grandes en tiempo real
 
