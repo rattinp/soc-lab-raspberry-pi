@@ -116,6 +116,72 @@ def grafico_barras(series, titulo="", color=PALETA[0]):
     return fig
 
 
+# Ubicacion aproximada del honeypot (centro de Uruguay, no la ciudad exacta,
+# por prudencia de no exponer una ubicacion demasiado precisa en un mapa publico)
+TARGET_LAT, TARGET_LON = -32.5, -55.8
+
+
+def grafico_mapa_ataques(ips_data):
+    """Mapa de ataques estilo 'threat map' (Kaspersky/Norse): arcos desde cada
+    IP atacante hasta el honeypot, sobre un globo oscuro."""
+    fig = go.Figure()
+
+    for ip, info in ips_data.items():
+        geo = info.get("geolocalizacion", {})
+        lat, lon = geo.get("lat"), geo.get("lon")
+        if lat is None or lon is None:
+            continue
+
+        abuse = info.get("abuseipdb", {})
+        score = abuse.get("abuse_confidence_score", 0) or 0
+        color_arco = "#ef4444" if score >= 50 else ("#f5c518" if score >= 20 else "#4fd8c4")
+
+        # Arco (linea) desde el atacante hasta el honeypot
+        fig.add_trace(go.Scattergeo(
+            lat=[lat, TARGET_LAT],
+            lon=[lon, TARGET_LON],
+            mode="lines",
+            line=dict(width=1.5, color=color_arco),
+            opacity=0.6,
+            showlegend=False,
+            hoverinfo="skip",
+        ))
+        # Punto de origen del atacante
+        fig.add_trace(go.Scattergeo(
+            lat=[lat], lon=[lon],
+            mode="markers",
+            marker=dict(size=7, color=color_arco, line=dict(width=1, color="#0d0f17")),
+            showlegend=False,
+            text=[f"{ip}<br>{geo.get('ciudad', 'N/A')}, {geo.get('pais', 'N/A')}<br>Score: {score}%"],
+            hoverinfo="text",
+        ))
+
+    # Marcador del honeypot (destino)
+    fig.add_trace(go.Scattergeo(
+        lat=[TARGET_LAT], lon=[TARGET_LON],
+        mode="markers",
+        marker=dict(size=14, color="#3b9dfd", symbol="diamond", line=dict(width=2, color="#e4e6ef")),
+        showlegend=False,
+        text=["🛡️ HoneyPI"],
+        hoverinfo="text",
+    ))
+
+    fig.update_geos(
+        projection_type="natural earth",
+        showland=True, landcolor="#1a1d2b",
+        showocean=True, oceancolor="#0d0f17",
+        showcountries=True, countrycolor="#2a2e42",
+        showcoastlines=True, coastlinecolor="#2a2e42",
+        bgcolor="rgba(0,0,0,0)",
+    )
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        margin=dict(t=10, b=10, l=10, r=10),
+        height=420,
+    )
+    return fig
+
+
 # --- Rutas relativas al repo ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
@@ -223,6 +289,19 @@ with k5:
 st.markdown("---")
 
 # =========================================================
+#  MAPA DE ATAQUES EN VIVO (estilo threat map)
+# =========================================================
+with st.container(border=True):
+    st.markdown("#### 🌐 Mapa de ataques en vivo")
+    st.caption("Cada línea representa un ataque real, desde la IP de origen hasta el honeypot. Color = score de reputación (rojo = alto riesgo).")
+    if ips_data:
+        st.plotly_chart(grafico_mapa_ataques(ips_data), use_container_width=True)
+    else:
+        st.info("Sin datos de geolocalización todavía.")
+
+st.markdown("---")
+
+# =========================================================
 #  FILA: Casos destacados + Donut de severidad
 # =========================================================
 col_izq, col_der = st.columns([1.3, 1])
@@ -270,6 +349,60 @@ with col_der:
             )
         else:
             st.info("Sin datos suficientes todavía.")
+
+st.markdown("---")
+
+# =========================================================
+#  ACTIVIDAD RECIENTE: feed en vivo con color por severidad + explicacion MITRE
+# =========================================================
+with st.container(border=True):
+    st.markdown("#### 📡 Actividad reciente")
+    st.caption("Últimos comandos capturados, con clasificación MITRE ATT&CK cuando está disponible.")
+
+    COLOR_SEVERIDAD = {
+        "Critica": "#ef4444",
+        "Alta": "#f97316",
+        "Media": "#f5c518",
+        "Baja": "#34d399",
+    }
+
+    if not df.empty:
+        for _, evento in df.head(12).iterrows():
+            severidad = evento.get("severidad", "N/A")
+            color = COLOR_SEVERIDAD.get(severidad, "#4b5163")
+            ip = evento.get("ip_origen", "N/A")
+            servicio = evento.get("servicio", "N/A")
+            comando = str(evento.get("comando", ""))[:140]
+            tactica = evento.get("mitre_tactic", None)
+            tecnica = evento.get("mitre_technique", None)
+            analisis = str(evento.get("analisis", ""))[:220]
+            timestamp = evento.get("timestamp", "")
+
+            linea_mitre = ""
+            if tactica and tactica != "N/A":
+                linea_mitre = f'<div style="font-size:0.8em; color:{color}; margin-top:4px;">🗺️ {tactica} — {tecnica}</div>'
+
+            st.markdown(
+                f"""
+                <div style="border-left: 3px solid {color}; background-color: {COLOR_TARJETA};
+                            border-radius: 6px; padding: 10px 14px; margin-bottom: 8px;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.8em; color:{COLOR_TEXTO_SEC};">
+                        <span><b style="color:{COLOR_TEXTO};">{ip}</b> · {servicio}</span>
+                        <span>{timestamp} {f'· <b style="color:{color};">{severidad}</b>' if severidad != 'N/A' else ''}</span>
+                    </div>
+                    <div style="font-family: monospace; font-size:0.85em; color:{COLOR_TEXTO}; margin-top:4px;">
+                        $ {comando}
+                    </div>
+                    {linea_mitre}
+                    <div style="font-size:0.82em; color:{COLOR_TEXTO_SEC}; margin-top:4px;">
+                        {analisis}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+    else:
+        st.info("Todavía no hay actividad registrada.")
 
 st.markdown("---")
 
