@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
 Analista IA - Honeypot Cowrie + Claude API + Telemetria termica (Argon ONE V3)
-Version que usa la API de Claude (Anthropic) en vez de Ollama local, para
-sacarle toda la carga de inferencia a la Raspberry Pi.
+Version con clasificacion estructurada (tecnica MITRE ATT&CK + severidad) y
+deteccion de comandos genuinamente nuevos (para no saturar Telegram con
+alertas de la misma tecnica repetida).
 
 Incluye proteccion anti-rafaga: si el mismo comando+IP se repite muchas veces
-en poco tiempo (ej. un ataque de fuerza bruta o un script en loop), no dispara
-una consulta a la API por cada uno - los agrupa y analiza uno solo cada tanto.
+en poco tiempo, no dispara una consulta a la API por cada uno.
 """
 
 import subprocess
@@ -15,25 +15,25 @@ import os
 import re
 import time
 from datetime import datetime
-from collections import defaultdict
 
 import anthropic
 
+from telegram_notificar import enviar_alerta
+
 # ============== CONFIGURACION ==============
 CONTENEDOR_COWRIE = "cowrie"
-MODELO_CLAUDE = "claude-haiku-4-5"  # rapido y barato, ideal para triage en volumen
+MODELO_CLAUDE = "claude-haiku-4-5"
 HISTORIAL_PATH = os.path.expanduser("~/incidentes.json")
+COMANDOS_VISTOS_PATH = os.path.expanduser("~/comandos_vistos.json")
 
 MARCADORES_COMANDO = ["CMD:", "Command found:"]
 IP_REGEX = re.compile(r"\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b")
 
-# --- Proteccion anti-rafaga ---
-# Si el mismo (ip, comando) se repite dentro de esta ventana, no se vuelve a
-# consultar a la API - se cuenta y se loguea localmente sin gastar tokens.
+# --- Proteccion anti-rafaga (mismo comando+IP en poco tiempo) ---
 VENTANA_DEDUPE_SEGUNDOS = 60
 ultimo_visto = {}  # (ip, comando) -> timestamp de la ultima consulta real
 
-client = anthropic.Anthropic()  # toma ANTHROPIC_API_KEY del entorno automaticamente
+client = anthropic.Anthropic()
 
 
 def obtener_temperatura():
@@ -68,13 +68,36 @@ def detectar_servicio(linea):
     return "Telnet" if "telnet" in linea.lower() else "SSH"
 
 
-def guardar_en_historial(ip_origen, servicio, comando, analisis_ia, temperatura, throttled):
+def cargar_comandos_vistos():
+    """Set historico de comandos (normalizados) ya analizados alguna vez,
+    sin importar la IP ni cuando. Sirve para saber si esto es 'nuevo' de verdad."""
+    if os.path.exists(COMANDOS_VISTOS_PATH):
+        try:
+            with open(COMANDOS_VISTOS_PATH, "r") as f:
+                return set(json.load(f))
+        except (json.JSONDecodeError, FileNotFoundError):
+            return set()
+    return set()
+
+
+def guardar_comandos_vistos(comandos_vistos):
+    with open(COMANDOS_VISTOS_PATH, "w") as f:
+        json.dump(sorted(comandos_vistos), f, indent=2, ensure_ascii=False)
+
+
+comandos_vistos_historico = cargar_comandos_vistos()
+
+
+def guardar_en_historial(ip_origen, servicio, comando, analisis_dict, temperatura, throttled):
     incidente = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "ip_origen": ip_origen,
         "servicio": servicio,
         "comando": comando,
-        "analisis": analisis_ia,
+        "analisis": analisis_dict.get("analisis", ""),
+        "mitre_technique": analisis_dict.get("mitre_technique", "N/A"),
+        "mitre_tactic": analisis_dict.get("mitre_tactic", "N/A"),
+        "severidad": analisis_dict.get("severidad", "N/A"),
         "temperatura": temperatura,
         "throttled": throttled,
     }
@@ -97,21 +120,50 @@ def guardar_en_historial(ip_origen, servicio, comando, analisis_ia, temperatura,
 
 
 def consultar_claude(comando):
-    """Envia el comando a la API de Claude y devuelve el analisis en texto."""
+    """Envia el comando a Claude pidiendo JSON estructurado: tecnica MITRE,
+    tactica, severidad, y un analisis breve. Devuelve un dict; si el parseo
+    falla, devuelve el texto crudo en el campo 'analisis' como fallback."""
     prompt = (
-        f"Actua como un analista experto en ciberseguridad. Analiza este comando "
-        f"capturado en un honeypot: {comando}. "
-        f"Responde estrictamente en un parrafo corto de maximo 3 lineas en espanol."
+        "Actua como un analista SOC experto en ciberseguridad, especializado en "
+        "honeypots y MITRE ATT&CK. Analiza este comando capturado en un honeypot: "
+        f"{comando}\n\n"
+        "Respondé EXCLUSIVAMENTE con un objeto JSON valido (sin texto antes ni "
+        "despues, sin markdown, sin ```), con exactamente estas claves:\n"
+        '{\n'
+        '  "mitre_tactic": "<tactica MITRE ATT&CK, ej: Discovery, Execution, '
+        'Persistence, Defense Evasion, Command and Control, Exfiltration, '
+        'Impact, Initial Access, Credential Access>",\n'
+        '  "mitre_technique": "<codigo y nombre de tecnica, ej: T1057 - Process '
+        'Discovery>",\n'
+        '  "severidad": "<Baja, Media, Alta o Critica>",\n'
+        '  "analisis": "<explicacion tecnica breve en espanol, maximo 2 lineas>"\n'
+        '}'
     )
+    texto = ""
     try:
         respuesta = client.messages.create(
             model=MODELO_CLAUDE,
-            max_tokens=200,
+            max_tokens=300,
             messages=[{"role": "user", "content": prompt}],
         )
-        return respuesta.content[0].text.strip()
+        texto = respuesta.content[0].text.strip()
+        # Por si el modelo igual envuelve en markdown pese a la instruccion
+        texto = texto.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+        return json.loads(texto)
+    except json.JSONDecodeError:
+        return {
+            "mitre_tactic": "N/A",
+            "mitre_technique": "N/A",
+            "severidad": "N/A",
+            "analisis": texto or "[Error de formato en la respuesta]",
+        }
     except Exception as e:
-        return f"[ERROR consultando Claude: {e}]"
+        return {
+            "mitre_tactic": "N/A",
+            "mitre_technique": "N/A",
+            "severidad": "N/A",
+            "analisis": f"[ERROR consultando Claude: {e}]",
+        }
 
 
 def procesar_linea(linea):
@@ -131,30 +183,50 @@ def procesar_linea(linea):
     ultima_vez = ultimo_visto.get(clave)
 
     if ultima_vez and (ahora - ultima_vez) < VENTANA_DEDUPE_SEGUNDOS:
-        # Rafaga detectada: mismo comando+IP repetido muy rapido. No gastamos
-        # una llamada a la API - solo lo dejamos anotado localmente.
         print(f"⏭️  [Rafaga] {ip_origen} repitio comando reciente, se omite consulta a Claude")
         guardar_en_historial(
             ip_origen, servicio, comando_limpio,
-            "[Repetido en menos de 60s - no se volvio a consultar a la IA para ahorrar recursos]",
+            {"analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]"},
             temperatura, throttled,
         )
         return
 
     ultimo_visto[clave] = ahora
 
-    analisis_ia = consultar_claude(comando_limpio)
+    # --- Es la primera vez que vemos ESTE comando en TODA la historia? ---
+    es_comando_nuevo = comando_limpio not in comandos_vistos_historico
+    if es_comando_nuevo:
+        comandos_vistos_historico.add(comando_limpio)
+        guardar_comandos_vistos(comandos_vistos_historico)
+
+    analisis_dict = consultar_claude(comando_limpio)
+
     print(f"🤖 [Análisis Claude] IP={ip_origen} | Servicio={servicio}")
     print(f"    Comando: {comando_limpio}")
-    print(f"    {analisis_ia}")
+    print(f"    Táctica: {analisis_dict.get('mitre_tactic')} | Técnica: {analisis_dict.get('mitre_technique')} | Severidad: {analisis_dict.get('severidad')}")
+    print(f"    {analisis_dict.get('analisis')}")
     print(f"    🌡️ Temp: {temperatura} | Throttled: {throttled}")
-
-    guardar_en_historial(ip_origen, servicio, comando_limpio, analisis_ia, temperatura, throttled)
     print("-" * 60)
+
+    guardar_en_historial(ip_origen, servicio, comando_limpio, analisis_dict, temperatura, throttled)
+
+    # --- Alerta por Telegram SOLO si es un comando genuinamente nuevo ---
+    if es_comando_nuevo:
+        mensaje = (
+            f"🆕 <b>COMANDO NUEVO DETECTADO</b>\n"
+            f"IP: {ip_origen} | Servicio: {servicio}\n"
+            f"Comando: <code>{comando_limpio[:200]}</code>\n\n"
+            f"Táctica MITRE: {analisis_dict.get('mitre_tactic')}\n"
+            f"Técnica: {analisis_dict.get('mitre_technique')}\n"
+            f"Severidad: {analisis_dict.get('severidad')}\n\n"
+            f"{analisis_dict.get('analisis')}"
+        )
+        enviar_alerta(mensaje)
 
 
 def main():
-    print(f"=== Analista IA (Claude API) iniciado. Escuchando contenedor '{CONTENEDOR_COWRIE}' ===")
+    print(f"=== Analista IA (Claude API + MITRE) iniciado. Escuchando contenedor '{CONTENEDOR_COWRIE}' ===")
+    print(f"    Comandos ya conocidos en el historico: {len(comandos_vistos_historico)}")
     comando_docker = ["docker", "logs", "-f", "--tail", "0", CONTENEDOR_COWRIE]
 
     try:

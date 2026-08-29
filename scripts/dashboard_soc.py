@@ -84,6 +84,39 @@ if os.path.exists(HISTORIAL_PATH):
             if "comando" in df.columns:
                 st.bar_chart(df["comando"].value_counts().head(10))
 
+            # --- NUEVO: MITRE ATT&CK + Severidad ---
+            if "mitre_tactic" in df.columns:
+                st.markdown("---")
+                st.write("### 🗺️ Clasificación MITRE ATT&CK")
+                df_mitre = df[df["mitre_tactic"].notna() & (df["mitre_tactic"] != "N/A")]
+
+                if not df_mitre.empty:
+                    m1, m2 = st.columns(2)
+                    with m1:
+                        st.write("**Eventos por Táctica MITRE**")
+                        st.bar_chart(df_mitre["mitre_tactic"].value_counts())
+                    with m2:
+                        if "severidad" in df_mitre.columns:
+                            st.write("**Eventos por Severidad**")
+                            orden_severidad = ["Critica", "Alta", "Media", "Baja"]
+                            conteo_sev = df_mitre["severidad"].value_counts()
+                            conteo_sev = conteo_sev.reindex(
+                                [s for s in orden_severidad if s in conteo_sev.index]
+                            )
+                            st.bar_chart(conteo_sev)
+
+                    if "mitre_technique" in df_mitre.columns:
+                        st.write("**Top técnicas detectadas**")
+                        st.dataframe(
+                            df_mitre["mitre_technique"].value_counts().reset_index().rename(
+                                columns={"mitre_technique": "Técnica", "count": "Eventos"}
+                            ),
+                            width='stretch',
+                            hide_index=True,
+                        )
+                else:
+                    st.info("Todavía no hay eventos con clasificación MITRE (se completa con la versión actualizada del analista).")
+
     except Exception as e:
         st.error(f"Error al procesar incidentes: {e}")
 else:
@@ -192,11 +225,28 @@ if os.path.exists(PAYLOADS_PATH):
                 _veredicto_vt(p) for p in payloads[::-1]
             ]
 
+            def _link_hybrid(fila):
+                ha = fila.get("hybrid_analysis") if isinstance(fila, dict) else None
+                if isinstance(ha, dict) and ha.get("link"):
+                    return ha["link"]
+                return None
+
+            df_payloads["Hybrid Analysis"] = [_link_hybrid(p) for p in payloads[::-1]]
+
+            def _yara_texto(fila):
+                matches = fila.get("yara_matches") if isinstance(fila, dict) else None
+                if matches:
+                    return ", ".join(matches)
+                return "Sin coincidencias"
+
+            df_payloads["YARA"] = [_yara_texto(p) for p in payloads[::-1]]
+
             st.dataframe(
-                df_payloads[["timestamp", "nombre_archivo", "tamano_bytes", "Veredicto VirusTotal", "VirusTotal"]],
+                df_payloads[["timestamp", "nombre_archivo", "tamano_bytes", "YARA", "Veredicto VirusTotal", "VirusTotal", "Hybrid Analysis"]],
                 width='stretch',
                 column_config={
-                    "VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis")
+                    "VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis"),
+                    "Hybrid Analysis": st.column_config.LinkColumn("Hybrid Analysis", display_text="Ver análisis"),
                 },
             )
         else:
