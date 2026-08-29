@@ -177,7 +177,7 @@ def grafico_mapa_ataques(ips_data):
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         margin=dict(t=10, b=10, l=10, r=10),
-        height=420,
+        height=280,
     )
     return fig
 
@@ -288,55 +288,22 @@ if os.path.exists(PAYLOADS_PATH):
     except Exception as e:
         st.warning(f"⚠️ No se pudo leer payloads_capturados.json: {e}")
 
-# --- DEBUG TEMPORAL: quitar despues de confirmar por que no cargan los eventos ---
-with st.expander("🔧 Debug (temporal)"):
-    st.write("HISTORIAL_PATH:", HISTORIAL_PATH)
-    st.write("Existe el archivo:", os.path.exists(HISTORIAL_PATH))
-    if os.path.exists(HISTORIAL_PATH):
-        st.write("Tamaño en bytes:", os.path.getsize(HISTORIAL_PATH))
-    st.write("Filas en df:", len(df))
-    st.write("df.empty:", df.empty)
-    if not df.empty:
-        st.write("Columnas:", list(df.columns))
-
-# =========================================================
-#  SIDEBAR: mapa + accesos
-# =========================================================
-with st.sidebar:
-    st.markdown("### 🛡️ HoneyPI SOC")
-    st.markdown('<span class="live-dot"></span>**En vivo**', unsafe_allow_html=True)
-    st.caption("Espejo público de solo lectura · sync cada 30 min")
-
-    st.markdown("---")
-    st.markdown("**Ubicación de atacantes**")
-    mapa_puntos = []
-    for ip, info in ips_data.items():
-        geo = info.get("geolocalizacion", {})
-        lat, lon = geo.get("lat"), geo.get("lon")
-        if lat is not None and lon is not None:
-            mapa_puntos.append({"lat": lat, "lon": lon})
-    if mapa_puntos:
-        st.map(pd.DataFrame(mapa_puntos), zoom=0, width='stretch')
-    else:
-        st.caption("Sin datos de geolocalización todavía.")
-
-    st.markdown("---")
-    st.markdown(
-        """
-        <div style="font-size: 0.8em; opacity: 0.9;">
-        📖 <a href="https://www.linkedin.com/pulse/honeypi-un-soc-casero-con-ia-local-cap%C3%ADtulo-1-pablo-rattin-ntrwf/" target="_blank">Cómo se armó →</a><br><br>
-        🔗 <a href="https://www.linkedin.com/in/pablorattin" target="_blank">LinkedIn</a> ·
-        <a href="https://praxiscybersecurity.com" target="_blank">Praxis Cybersecurity</a>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
 # =========================================================
 #  HEADER + BARRA DE KPIs (estilo "Overview" de QRadar)
 # =========================================================
 st.markdown("## 🛡️ HoneyPI — SOC Lab")
 st.caption("Honeypot + IA en Raspberry Pi 5 · Monitoreo en tiempo real")
+st.markdown(
+    """
+    <div style="font-size: 0.85em; opacity: 0.9; margin-top: -8px; margin-bottom: 10px;">
+    <span class="live-dot"></span><b>En vivo</b> · sync cada 30 min ·
+    📖 <a href="https://www.linkedin.com/pulse/honeypi-un-soc-casero-con-ia-local-cap%C3%ADtulo-1-pablo-rattin-ntrwf/" target="_blank">Cómo se armó</a> ·
+    <a href="https://www.linkedin.com/in/pablorattin" target="_blank">LinkedIn</a> ·
+    <a href="https://praxiscybersecurity.com" target="_blank">Praxis Cybersecurity</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 auto_refresh = st.checkbox("Auto-actualizar cada 30s")
 
