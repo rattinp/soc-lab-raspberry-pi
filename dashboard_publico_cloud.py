@@ -132,6 +132,89 @@ if os.path.exists(HISTORIAL_PATH):
             if "comando" in df.columns:
                 st.bar_chart(df["comando"].value_counts().head(10))
 
+            # --- NUEVO: Mapa de calor por hora del dia ---
+            if "timestamp" in df.columns:
+                st.markdown("---")
+                st.write("### 🕐 ¿A qué hora atacan más?")
+                try:
+                    horas = pd.to_datetime(df["timestamp"], format="%Y-%m-%d %H:%M:%S").dt.hour
+                    conteo_horas = horas.value_counts().reindex(range(24), fill_value=0)
+                    conteo_horas.index = [f"{h:02d}h" for h in conteo_horas.index]
+                    st.bar_chart(conteo_horas)
+                    hora_pico = horas.value_counts().idxmax()
+                    st.caption(f"Hora con más actividad: {hora_pico:02d}:00 (hora del servidor)")
+                except Exception:
+                    st.info("No se pudo calcular el mapa de calor horario.")
+
+            # --- NUEVO: MITRE ATT&CK + Severidad ---
+            if "mitre_tactic" in df.columns:
+                st.markdown("---")
+                st.write("### 🗺️ Clasificación MITRE ATT&CK")
+                df_mitre = df[df["mitre_tactic"].notna() & (df["mitre_tactic"] != "N/A")]
+
+                if not df_mitre.empty:
+                    m1, m2 = st.columns(2)
+                    with m1:
+                        st.write("**Eventos por Táctica MITRE**")
+                        st.bar_chart(df_mitre["mitre_tactic"].value_counts())
+                    with m2:
+                        if "severidad" in df_mitre.columns:
+                            st.write("**Eventos por Severidad**")
+                            orden_severidad = ["Critica", "Alta", "Media", "Baja"]
+                            conteo_sev = df_mitre["severidad"].value_counts()
+                            conteo_sev = conteo_sev.reindex(
+                                [s for s in orden_severidad if s in conteo_sev.index]
+                            )
+                            st.bar_chart(conteo_sev)
+
+                    if "mitre_technique" in df_mitre.columns:
+                        st.write("**Top técnicas detectadas**")
+                        st.dataframe(
+                            df_mitre["mitre_technique"].value_counts().reset_index().rename(
+                                columns={"mitre_technique": "Técnica", "count": "Eventos"}
+                            ),
+                            width='stretch',
+                            hide_index=True,
+                        )
+                else:
+                    st.info("Todavía no hay eventos con clasificación MITRE.")
+
+            # --- NUEVO: Costo estimado del pipeline de IA ---
+            if "analisis" in df.columns:
+                st.markdown("---")
+                st.write("### 💰 Costo Estimado del Análisis con IA")
+                try:
+                    analizados = df[~df["analisis"].astype(str).str.startswith("[Repetido") & ~df["analisis"].astype(str).str.startswith("[Circuit")]
+                    cantidad_analizados = len(analizados)
+
+                    TOKENS_ENTRADA_APROX = 150
+                    TOKENS_SALIDA_APROX = 120
+                    PRECIO_ENTRADA_POR_MILLON = 1.0
+                    PRECIO_SALIDA_POR_MILLON = 5.0
+
+                    tokens_entrada_total = cantidad_analizados * TOKENS_ENTRADA_APROX
+                    tokens_salida_total = cantidad_analizados * TOKENS_SALIDA_APROX
+
+                    costo_estimado = (
+                        (tokens_entrada_total / 1_000_000) * PRECIO_ENTRADA_POR_MILLON
+                        + (tokens_salida_total / 1_000_000) * PRECIO_SALIDA_POR_MILLON
+                    )
+
+                    co1, co2, co3 = st.columns(3)
+                    with co1:
+                        st.metric("Consultas reales a la API", cantidad_analizados)
+                    with co2:
+                        st.metric("Tokens estimados (total)", f"{tokens_entrada_total + tokens_salida_total:,}")
+                    with co3:
+                        st.metric("Costo estimado (USD)", f"${costo_estimado:.4f}")
+
+                    st.caption(
+                        "Estimación aproximada (Claude Haiku 4.5: $1/millón entrada, $5/millón salida). "
+                        "No incluye consultas omitidas por anti-ráfaga o circuit breaker."
+                    )
+                except Exception:
+                    st.info("No se pudo calcular el costo estimado.")
+
     except Exception as e:
         st.error(f"Error al procesar incidentes: {e}")
 else:
@@ -230,12 +313,31 @@ if os.path.exists(PAYLOADS_PATH):
 
             df_payloads["Veredicto VirusTotal"] = [_veredicto_vt(p) for p in payloads[::-1]]
 
-            columnas_mostrar = ["timestamp", "nombre_archivo", "tamano_bytes", "Veredicto VirusTotal", "VirusTotal"]
+            def _link_hybrid(fila):
+                ha = fila.get("hybrid_analysis") if isinstance(fila, dict) else None
+                if isinstance(ha, dict) and ha.get("link"):
+                    return ha["link"]
+                return None
+
+            df_payloads["Hybrid Analysis"] = [_link_hybrid(p) for p in payloads[::-1]]
+
+            def _yara_texto(fila):
+                matches = fila.get("yara_matches") if isinstance(fila, dict) else None
+                if matches:
+                    return ", ".join(matches)
+                return "Sin coincidencias"
+
+            df_payloads["YARA"] = [_yara_texto(p) for p in payloads[::-1]]
+
+            columnas_mostrar = ["timestamp", "nombre_archivo", "tamano_bytes", "YARA", "Veredicto VirusTotal", "VirusTotal", "Hybrid Analysis"]
             columnas_disponibles = [c for c in columnas_mostrar if c in df_payloads.columns]
             st.dataframe(
                 df_payloads[columnas_disponibles],
                 width='stretch',
-                column_config={"VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis")},
+                column_config={
+                    "VirusTotal": st.column_config.LinkColumn("VirusTotal", display_text="Ver análisis"),
+                    "Hybrid Analysis": st.column_config.LinkColumn("Hybrid Analysis", display_text="Ver análisis"),
+                },
             )
         else:
             st.info("Todavía no se capturó ningún payload real. La vigilancia sigue activa.")
