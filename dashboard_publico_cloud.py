@@ -326,24 +326,20 @@ with k5:
 st.markdown("---")
 
 # =========================================================
-#  MAPA DE ATAQUES EN VIVO (estilo threat map)
+#  FILA: Mapa de ataques (costado) + Casos destacados
 # =========================================================
-with st.container(border=True):
-    st.markdown("#### 🌐 Mapa de ataques en vivo")
-    st.caption("Cada línea representa un ataque real, desde la IP de origen hasta el honeypot. Color = score de reputación (rojo = alto riesgo).")
-    if ips_data:
-        st.plotly_chart(grafico_mapa_ataques(ips_data), width='stretch')
-    else:
-        st.info("Sin datos de geolocalización todavía.")
+col_mapa, col_casos = st.columns([1, 1.3])
 
-st.markdown("---")
+with col_mapa:
+    with st.container(border=True):
+        st.markdown("#### 🌐 Mapa de ataques en vivo")
+        st.caption("Origen del ataque → honeypot. Rojo = alto riesgo.")
+        if ips_data:
+            st.plotly_chart(grafico_mapa_ataques(ips_data), width='stretch')
+        else:
+            st.info("Sin datos de geolocalización todavía.")
 
-# =========================================================
-#  FILA: Casos destacados + Donut de severidad
-# =========================================================
-col_izq, col_der = st.columns([1.3, 1])
-
-with col_izq:
+with col_casos:
     with st.container(border=True):
         st.markdown("#### ⭐ Casos destacados")
         CASOS_DESTACADOS = [
@@ -367,25 +363,6 @@ with col_izq:
             with st.expander(caso["titulo"]):
                 st.code(caso["comando"], language="bash")
                 st.write(caso["descripcion"])
-
-with col_der:
-    with st.container(border=True):
-        if not df.empty and "severidad" in df.columns:
-            df_sev = df[df["severidad"].notna() & (df["severidad"] != "N/A")]
-            if not df_sev.empty:
-                st.plotly_chart(
-                    grafico_donut(df_sev["severidad"].value_counts(), "Eventos por Severidad"),
-                    width='stretch',
-                )
-            else:
-                st.info("Todavía no hay eventos con severidad clasificada.")
-        elif not df.empty and "servicio" in df.columns:
-            st.plotly_chart(
-                grafico_donut(df["servicio"].value_counts(), "Ataques por Protocolo"),
-                width='stretch',
-            )
-        else:
-            st.info("Sin datos suficientes todavía.")
 
 st.markdown("---")
 
