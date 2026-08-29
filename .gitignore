@@ -1,5 +1,11 @@
 # Datos sensibles / generados en runtime — nunca versionar
-incidentes.json
+# Datos sensibles en la raiz del proyecto (nunca versionar la copia de trabajo)
+/incidentes.json
+/payloads_capturados.json
+/ips_enriquecidas.json
+
+# La carpeta data/ SI se versiona - es la que alimenta el dashboard publico
+!data/
 cowrie_logs/
 *.log
 
