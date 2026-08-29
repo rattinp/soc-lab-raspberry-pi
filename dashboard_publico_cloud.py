@@ -305,7 +305,7 @@ with st.sidebar:
         if lat is not None and lon is not None:
             mapa_puntos.append({"lat": lat, "lon": lon})
     if mapa_puntos:
-        st.map(pd.DataFrame(mapa_puntos), zoom=0, use_container_width=True)
+        st.map(pd.DataFrame(mapa_puntos), zoom=0, width='stretch')
     else:
         st.caption("Sin datos de geolocalización todavía.")
 
@@ -354,7 +354,7 @@ with st.container(border=True):
     st.markdown("#### 🌐 Mapa de ataques en vivo")
     st.caption("Cada línea representa un ataque real, desde la IP de origen hasta el honeypot. Color = score de reputación (rojo = alto riesgo).")
     if ips_data:
-        st.plotly_chart(grafico_mapa_ataques(ips_data), use_container_width=True)
+        st.plotly_chart(grafico_mapa_ataques(ips_data), width='stretch')
     else:
         st.info("Sin datos de geolocalización todavía.")
 
@@ -397,14 +397,14 @@ with col_der:
             if not df_sev.empty:
                 st.plotly_chart(
                     grafico_donut(df_sev["severidad"].value_counts(), "Eventos por Severidad"),
-                    use_container_width=True,
+                    width='stretch',
                 )
             else:
                 st.info("Todavía no hay eventos con severidad clasificada.")
         elif not df.empty and "servicio" in df.columns:
             st.plotly_chart(
                 grafico_donut(df["servicio"].value_counts(), "Ataques por Protocolo"),
-                use_container_width=True,
+                width='stretch',
             )
         else:
             st.info("Sin datos suficientes todavía.")
@@ -434,7 +434,7 @@ if not df.empty:
             st.markdown("#### 🗺️ Heatmap MITRE ATT&CK (Táctica × Severidad)")
             fig_heatmap = grafico_heatmap_mitre(df) if "mitre_tactic" in df.columns else None
             if fig_heatmap:
-                st.plotly_chart(fig_heatmap, use_container_width=True)
+                st.plotly_chart(fig_heatmap, width='stretch')
             else:
                 st.info("Todavía no hay eventos con clasificación MITRE.")
 
@@ -459,14 +459,14 @@ if not df.empty:
             if "ip_origen" in df.columns:
                 st.plotly_chart(
                     grafico_barras(df["ip_origen"].value_counts().head(10), "Top 10 IPs atacantes", PALETA[1]),
-                    use_container_width=True,
+                    width='stretch',
                 )
     with e2:
         with st.container(border=True):
             if "comando" in df.columns:
                 st.plotly_chart(
                     grafico_barras(df["comando"].value_counts().head(10), "Top 10 comandos ejecutados", PALETA[2]),
-                    use_container_width=True,
+                    width='stretch',
                 )
 
     h1 = st.container(border=True)
@@ -478,7 +478,7 @@ if not df.empty:
                 conteo_horas.index = [f"{h:02d}h" for h in conteo_horas.index]
                 st.plotly_chart(
                     grafico_barras(conteo_horas, "¿A qué hora atacan más?", PALETA[3]),
-                    use_container_width=True,
+                    width='stretch',
                 )
                 hora_pico = horas.value_counts().idxmax()
                 st.caption(f"Hora con más actividad: {hora_pico:02d}:00 (hora del servidor)")
@@ -556,7 +556,7 @@ with st.container(border=True):
         with r2:
             st.plotly_chart(
                 grafico_donut(df_ips["País"].value_counts(), "Países de origen"),
-                use_container_width=True,
+                width='stretch',
             )
     else:
         st.info("⌛ Sin datos de geolocalización todavía.")
