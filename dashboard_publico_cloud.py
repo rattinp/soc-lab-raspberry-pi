@@ -258,8 +258,8 @@ if os.path.exists(ESTADO_HW_PATH):
     try:
         with open(ESTADO_HW_PATH, "r") as f:
             estado_hw = json.load(f)
-    except Exception:
-        pass
+    except Exception as e:
+        st.warning(f"⚠️ No se pudo leer estado_hardware.json: {e}")
 
 df = pd.DataFrame()
 if os.path.exists(HISTORIAL_PATH):
@@ -269,24 +269,24 @@ if os.path.exists(HISTORIAL_PATH):
         df = pd.DataFrame(datos)
         if not df.empty:
             df = df.iloc[::-1].reset_index(drop=True)
-    except Exception:
-        pass
+    except Exception as e:
+        st.error(f"⚠️ No se pudo leer incidentes.json: {e}")
 
 ips_data = {}
 if os.path.exists(IPS_ENRIQUECIDAS_PATH):
     try:
         with open(IPS_ENRIQUECIDAS_PATH, "r") as f:
             ips_data = json.load(f)
-    except Exception:
-        pass
+    except Exception as e:
+        st.warning(f"⚠️ No se pudo leer ips_enriquecidas.json: {e}")
 
 payloads = []
 if os.path.exists(PAYLOADS_PATH):
     try:
         with open(PAYLOADS_PATH, "r") as f:
             payloads = json.load(f)
-    except Exception:
-        pass
+    except Exception as e:
+        st.warning(f"⚠️ No se pudo leer payloads_capturados.json: {e}")
 
 # =========================================================
 #  SIDEBAR: mapa + accesos

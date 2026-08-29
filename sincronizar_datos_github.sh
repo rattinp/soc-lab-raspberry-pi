@@ -18,7 +18,27 @@ fi
 mkdir -p "$DATA_DIR"
 
 # --- Copiar los archivos de datos actuales ---
-cp -f "$HOME/incidentes.json" "$DATA_DIR/incidentes.json" 2>/dev/null || echo "[]" > "$DATA_DIR/incidentes.json"
+# incidentes.json: se recorta a los ultimos N eventos antes de sincronizar.
+# El historial completo (49k+ eventos y creciendo) queda intacto en la Pi;
+# al dashboard publico solo le mandamos una ventana reciente, para que la
+# app en Streamlit Cloud sea liviana y rapida de cargar.
+MAX_EVENTOS_PUBLICOS=1000
+
+python3 -c "
+import json
+try:
+    with open('$HOME/incidentes.json', 'r') as f:
+        datos = json.load(f)
+    recortado = datos[-$MAX_EVENTOS_PUBLICOS:]
+    with open('$DATA_DIR/incidentes.json', 'w') as f:
+        json.dump(recortado, f, indent=2, ensure_ascii=False)
+    print(f'[i] incidentes.json recortado a {len(recortado)} de {len(datos)} eventos totales')
+except Exception as e:
+    print(f'[-] Error recortando incidentes.json: {e}')
+    with open('$DATA_DIR/incidentes.json', 'w') as f:
+        json.dump([], f)
+"
+
 cp -f "$HOME/ips_enriquecidas.json" "$DATA_DIR/ips_enriquecidas.json" 2>/dev/null || echo "{}" > "$DATA_DIR/ips_enriquecidas.json"
 cp -f "$HOME/payloads_capturados.json" "$DATA_DIR/payloads_capturados.json" 2>/dev/null || echo "[]" > "$DATA_DIR/payloads_capturados.json"
 
