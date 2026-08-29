@@ -236,7 +236,7 @@ def tabla_cola_alertas(df, n=15):
 
     styler = tabla.style
     if "Severidad" in tabla.columns:
-        styler = styler.applymap(_color_severidad, subset=["Severidad"])
+        styler = styler.map(_color_severidad, subset=["Severidad"])
     styler = styler.set_properties(**{"background-color": COLOR_TARJETA, "color": COLOR_TEXTO})
     return styler
 
