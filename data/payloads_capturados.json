@@ -5781,5 +5781,1710 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:03",
+    "nombre_archivo": "redir_078beb78851e43bdaca579b82bb19ba2",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_078beb78851e43bdaca579b82bb19ba2",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:05",
+    "nombre_archivo": "redir_7bd0f9b62ff04c3d897552b7f1d93c12",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_7bd0f9b62ff04c3d897552b7f1d93c12",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:07",
+    "nombre_archivo": "redir_a75b4f92696e43a6a009ccba48723c8d",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_a75b4f92696e43a6a009ccba48723c8d",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:08",
+    "nombre_archivo": "redir_f07de99fbaf4472b8327c23527f4a39f",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_f07de99fbaf4472b8327c23527f4a39f",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:10",
+    "nombre_archivo": "redir_bfc5c2844e344fa187547f519fa40bd1",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_bfc5c2844e344fa187547f519fa40bd1",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:12",
+    "nombre_archivo": "redir_aa68c2befd4e40588a0ea56e6e58ebf9",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_aa68c2befd4e40588a0ea56e6e58ebf9",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:14",
+    "nombre_archivo": "redir_ec7f5dc632a84a14bc0874aa0ee6bc0e",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_ec7f5dc632a84a14bc0874aa0ee6bc0e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:16",
+    "nombre_archivo": "redir_b8175dccc0344fd9ba1c91e4438a48eb",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_b8175dccc0344fd9ba1c91e4438a48eb",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:18",
+    "nombre_archivo": "redir_6a6bd98da2fc4e1d91c7f68a4988c41f",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_6a6bd98da2fc4e1d91c7f68a4988c41f",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:19",
+    "nombre_archivo": "redir_8393d8a137874186b31811eca53dd8ab",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_8393d8a137874186b31811eca53dd8ab",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:00:20",
+    "nombre_archivo": "redir_32d3e58a922747be891cf48a9110f96c",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_32d3e58a922747be891cf48a9110f96c",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:08",
+    "nombre_archivo": "redir_98d8a762c0554e418d9bbd663eed4523",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_98d8a762c0554e418d9bbd663eed4523",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:09",
+    "nombre_archivo": "redir_3b0581584f0d437f89fb4a2da5703d6a",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_3b0581584f0d437f89fb4a2da5703d6a",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:12",
+    "nombre_archivo": "redir_7cff097676834df5aaf5b9e3e1e84810",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_7cff097676834df5aaf5b9e3e1e84810",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:23",
+    "nombre_archivo": "redir_7097fbb46562460b81c8a3841030ba78",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_7097fbb46562460b81c8a3841030ba78",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:25",
+    "nombre_archivo": "redir_23c7d219e2044cf08af364a8e1e1c26f",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_23c7d219e2044cf08af364a8e1e1c26f",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:27",
+    "nombre_archivo": "redir_12ca569c2b324554914d4c732e689b58",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_12ca569c2b324554914d4c732e689b58",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:28",
+    "nombre_archivo": "redir_94596a82f27247f884831dc965297e4f",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_94596a82f27247f884831dc965297e4f",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:29",
+    "nombre_archivo": "redir_ee452c43bc1c4bf5bd57caed891ffeb8",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_ee452c43bc1c4bf5bd57caed891ffeb8",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:41",
+    "nombre_archivo": "redir_cb3e200b084043c6a0a81a9f08f3a262",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_cb3e200b084043c6a0a81a9f08f3a262",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:42",
+    "nombre_archivo": "redir_eb93737124154177b097b413d69d5351",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_eb93737124154177b097b413d69d5351",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:03:44",
+    "nombre_archivo": "redir_bbb17802efb84320aa4c5a44624905df",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_bbb17802efb84320aa4c5a44624905df",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:15",
+    "nombre_archivo": "redir_4ab2f6851f7c455597ee43236f09472e",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_4ab2f6851f7c455597ee43236f09472e",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:17",
+    "nombre_archivo": "redir_0ca8b23d646d448689ea01c3ce0cc609",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_0ca8b23d646d448689ea01c3ce0cc609",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:18",
+    "nombre_archivo": "redir_6948502867444ae5842123f14e9e98a4",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_6948502867444ae5842123f14e9e98a4",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:20",
+    "nombre_archivo": "redir_4416bed45dbe41689eb7dee230b0087d",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_4416bed45dbe41689eb7dee230b0087d",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:31",
+    "nombre_archivo": "redir_8c8d5812c0884f4ab69b79bd82871fa9",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_8c8d5812c0884f4ab69b79bd82871fa9",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:33",
+    "nombre_archivo": "redir_5b3b4c589e614ce780ea344ed2abd9d0",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_5b3b4c589e614ce780ea344ed2abd9d0",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:34",
+    "nombre_archivo": "redir_f1d01158c61d40b29744ea505c44558a",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_f1d01158c61d40b29744ea505c44558a",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:36",
+    "nombre_archivo": "redir_c28a0b5db1da49ce81af8d8182c46dfe",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_c28a0b5db1da49ce81af8d8182c46dfe",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:38",
+    "nombre_archivo": "redir_401a783824184591a7982eb257b676e4",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_401a783824184591a7982eb257b676e4",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:40",
+    "nombre_archivo": "redir_978b7f155910418b86b9be00db3eeada",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_978b7f155910418b86b9be00db3eeada",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:06:41",
+    "nombre_archivo": "redir_5369411bb0fe41dab60bcc80f72cef0a",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_5369411bb0fe41dab60bcc80f72cef0a",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:12",
+    "nombre_archivo": "redir_c25f1e8228054d5aa6403f146131d66a",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_c25f1e8228054d5aa6403f146131d66a",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:15",
+    "nombre_archivo": "redir_ac47f6e68d804551a372badc494324e6",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_ac47f6e68d804551a372badc494324e6",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:16",
+    "nombre_archivo": "redir_2721d04ee5c94cb4a88dd4b8f008c5c4",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_2721d04ee5c94cb4a88dd4b8f008c5c4",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:18",
+    "nombre_archivo": "redir_c740fabe655d4d3ca4d86bfb5c7a1059",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_c740fabe655d4d3ca4d86bfb5c7a1059",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:20",
+    "nombre_archivo": "redir_4899847fd4bd43ada8b4b25b4d49700b",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_4899847fd4bd43ada8b4b25b4d49700b",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:21",
+    "nombre_archivo": "redir_75242b0228934786aa70c3a432f71ff6",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_75242b0228934786aa70c3a432f71ff6",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:23",
+    "nombre_archivo": "redir_f96a02a3fe924977af785ad6e36878da",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_f96a02a3fe924977af785ad6e36878da",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:25",
+    "nombre_archivo": "redir_503b0199c7264773b084a82f9f4adfbc",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_503b0199c7264773b084a82f9f4adfbc",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:26",
+    "nombre_archivo": "redir_6dd05a71462440d1b650fb692113f6ff",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_6dd05a71462440d1b650fb692113f6ff",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:28",
+    "nombre_archivo": "redir_0f5baf2360694a95aa9d4bf91fc706e9",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_0f5baf2360694a95aa9d4bf91fc706e9",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:09:30",
+    "nombre_archivo": "redir_cacd915b3e024b01aeaab08ddacccc82",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_cacd915b3e024b01aeaab08ddacccc82",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:16",
+    "nombre_archivo": "redir_4a0a1ac28baf41039d6de6153be39ec4",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_4a0a1ac28baf41039d6de6153be39ec4",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:19",
+    "nombre_archivo": "redir_02af2e8d9fa644e4a9e90465e97d6b96",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_02af2e8d9fa644e4a9e90465e97d6b96",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:20",
+    "nombre_archivo": "redir_8d8d7bf2cc004080a9867f9d922f7051",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_8d8d7bf2cc004080a9867f9d922f7051",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:23",
+    "nombre_archivo": "redir_b236d8d688f54d12adc0d4755f146d16",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_b236d8d688f54d12adc0d4755f146d16",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:24",
+    "nombre_archivo": "redir_4654c153169c4a97a58a8d766a05aeff",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_4654c153169c4a97a58a8d766a05aeff",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:25",
+    "nombre_archivo": "redir_f0aed408f999426ca45433a3c1c37ff9",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_f0aed408f999426ca45433a3c1c37ff9",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:27",
+    "nombre_archivo": "redir_c779b8a774454d2684d440198b5794d0",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_c779b8a774454d2684d440198b5794d0",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:28",
+    "nombre_archivo": "redir_1ff70bec7d304211b7b31505fc220590",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_1ff70bec7d304211b7b31505fc220590",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:30",
+    "nombre_archivo": "redir_fcec78d3067842a0bbb41d092a168aa6",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_fcec78d3067842a0bbb41d092a168aa6",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:31",
+    "nombre_archivo": "redir_75878207437c401db8c63e58d19091ca",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_75878207437c401db8c63e58d19091ca",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-29 06:12:33",
+    "nombre_archivo": "redir_e44927bf76604119bcba00d7a3730d93",
+    "tamano_bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_e44927bf76604119bcba00d7a3730d93",
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "standalone-framework.js",
+      "tipo": "Text",
+      "tags": [
+        "nsrl",
+        "legit",
+        "trusted",
+        "attachment",
+        "via-tor",
+        "text",
+        "known-distributor",
+        "idle",
+        "long-sleeps"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
