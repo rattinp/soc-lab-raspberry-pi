@@ -1,17 +1,5 @@
 [
   {
-    "timestamp": "2026-08-30 00:19:59",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "wget",
-    "analisis": "Comando wget incompleto capturado en honeypot, típicamente usado para descargar herramientas maliciosas o payloads desde servidores remotos. Indica intento de transferencia de archivos como parte de cadena de ataque post-explotación.",
-    "mitre_technique": "T1105 - Ingress Tool Transfer",
-    "mitre_tactic": "Command and Control",
-    "severidad": "Media",
-    "temperatura": "38.9'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-08-30 00:20:00",
     "ip_origen": "92.100.2.5",
     "servicio": "Telnet",
@@ -11997,6 +11985,18 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "35.1'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 11:37:04",
+    "ip_origen": "167.71.225.225",
+    "servicio": "Telnet",
+    "comando": "enable",
+    "analisis": "Comando típico de dispositivos Cisco IOS para elevar privilegios a modo privilegiado (enable mode). Indica intento de escalación de privilegios en equipos de red, permitiendo acceso a comandos administrativos restringidos.",
+    "mitre_technique": "T1548.002 - Abuse Elevation Control Mechanism",
+    "mitre_tactic": "Defense Evasion",
+    "severidad": "Media",
+    "temperatura": "33.4'C",
     "throttled": "0x0"
   }
 ]
