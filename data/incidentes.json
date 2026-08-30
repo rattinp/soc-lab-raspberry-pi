@@ -1,65 +1,5 @@
 [
   {
-    "timestamp": "2026-08-29 22:33:16",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "sh",
-    "analisis": "Invocación de shell (sh) para obtener acceso a intérprete de comandos. Indicador de intento de ejecución remota de comandos o búsqueda de acceso interactivo al sistema comprometido.",
-    "mitre_technique": "T1059 - Command and Control Interpreter",
-    "mitre_tactic": "Execution",
-    "severidad": "Media",
-    "temperatura": "34.5'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-08-29 22:33:17",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "sh",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "35.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-08-29 22:33:21",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "shell",
-    "analisis": "Comando que intenta obtener acceso a un shell interactivo, indicando intento de ejecución de comandos post-compromiso. Es un indicador de explotación exitosa o movimiento lateral en el sistema comprometido.",
-    "mitre_technique": "T1059 - Command and Control Interpreter",
-    "mitre_tactic": "Execution",
-    "severidad": "Alta",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-08-29 22:33:24",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "enable",
-    "analisis": "Comando típico de dispositivos Cisco/networking que intenta cambiar a modo privilegiado (EXEC mode). Indica reconocimiento de entorno y potencial intención de elevar privilegios para ejecutar comandos administrativos en la infraestructura de red.",
-    "mitre_technique": "T1548 - Abuse Elevation Control Mechanism",
-    "mitre_tactic": "Defense Evasion",
-    "severidad": "Media",
-    "temperatura": "35.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-08-29 22:33:27",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "system",
-    "analisis": "El comando 'system' es una llamada de función en lenguajes como PHP o C que ejecuta comandos del sistema operativo. En este contexto, representa un intento de reconocimiento para enumerar procesos activos y obtener información del sistema objetivo.",
-    "mitre_technique": "T1057 - Process Discovery",
-    "mitre_tactic": "Discovery",
-    "severidad": "Baja",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-08-29 22:33:29",
     "ip_origen": "92.100.2.5",
     "servicio": "Telnet",
@@ -11997,6 +11937,66 @@
     "mitre_tactic": "Discovery",
     "severidad": "Baja",
     "temperatura": "38.9'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 01:34:19",
+    "ip_origen": "204.76.203.43",
+    "servicio": "Telnet",
+    "comando": "list",
+    "analisis": "El comando 'list' es un reconocimiento inicial genérico capturado en honeypot, típicamente utilizado para enumerar recursos, cuentas o directorios del sistema. Representa un comportamiento de reconocimiento de bajo nivel sin ejecución de payload malicioso.",
+    "mitre_technique": "T1087 - Account Discovery",
+    "mitre_tactic": "Discovery",
+    "severidad": "Baja",
+    "temperatura": "35.6'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 01:34:23",
+    "ip_origen": "204.76.203.43",
+    "servicio": "Telnet",
+    "comando": "who",
+    "analisis": "El comando 'who' es una herramienta de reconocimiento que enumera usuarios actualmente conectados al sistema. Un atacante lo utiliza para mapear usuarios presentes y obtener información sobre la actividad del sistema como parte de la fase de descubrimiento inicial.",
+    "mitre_technique": "T1033 - System Owner/User Discovery",
+    "mitre_tactic": "Discovery",
+    "severidad": "Baja",
+    "temperatura": "36.2'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 01:34:26",
+    "ip_origen": "204.76.203.43",
+    "servicio": "Telnet",
+    "comando": "who",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "37.3'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 01:34:29",
+    "ip_origen": "204.76.203.43",
+    "servicio": "Telnet",
+    "comando": "ddd",
+    "analisis": "Comando 'ddd' no reconocido o malformado. Posible intento de reconocimiento de sistema, enumeración de comandos disponibles o prueba de acceso a shell. Sin capacidad ejecutable clara, representa riesgo mínimo pero indica sondeo del honeypot.",
+    "mitre_technique": "T1059 - Command Line Interface",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "36.7'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 01:34:44",
+    "ip_origen": "204.76.203.43",
+    "servicio": "Telnet",
+    "comando": "tshell",
+    "analisis": "tshell es un shell interactivo remoto utilizado para obtener acceso de línea de comandos en sistemas comprometidos. Su ejecución indica intento de ejecución de comandos arbitrarios y potencial establecimiento de reverse shell para Command and Control.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Alta",
+    "temperatura": "34.5'C",
     "throttled": "0x0"
   }
 ]
