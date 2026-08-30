@@ -7569,5 +7569,36 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-08-30 12:59:52",
+    "nombre_archivo": "1d64be0ba1bd9924c3e29ae460db9407e4e33afeb864c9e39377ae4a87fa09db",
+    "tamano_bytes": 1835,
+    "sha256": "1d64be0ba1bd9924c3e29ae460db9407e4e33afeb864c9e39377ae4a87fa09db",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/1d64be0ba1bd9924c3e29ae460db9407e4e33afeb864c9e39377ae4a87fa09db",
+    "yara_matches": [
+      "Script_Descarga_Ejecucion"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 7,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 45,
+      "nombre_sugerido": "1.sh",
+      "tipo": "Shell script",
+      "tags": [
+        "shell",
+        "sets-process-name",
+        "detect-debug-environment",
+        "persistence",
+        "self-delete",
+        "malware"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
