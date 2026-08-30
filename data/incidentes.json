@@ -1,29 +1,5 @@
 [
   {
-    "timestamp": "2026-08-29 23:37:15",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "sh",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "37.3'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-08-29 23:37:17",
-    "ip_origen": "92.100.2.5",
-    "servicio": "Telnet",
-    "comando": "",
-    "analisis": "No veo ningún comando en tu mensaje para analizar. Por favor, proporciona el comando capturado en el honeypot y podré entregarte el análisis en formato JSON válido.",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "37.3'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-08-29 23:37:20",
     "ip_origen": "92.100.2.5",
     "servicio": "Telnet",
@@ -11997,6 +11973,30 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "36.2'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 04:47:02",
+    "ip_origen": "95.85.234.80",
+    "servicio": "SSH",
+    "comando": "uname -a",
+    "analisis": "El comando 'uname -a' es una técnica de reconocimiento del sistema para obtener información sobre el kernel, arquitectura y SO. Es el primer paso típico en reconocimiento post-compromiso para mapear el entorno objetivo.",
+    "mitre_technique": "T1622 - Debugged Detected",
+    "mitre_tactic": "Discovery",
+    "severidad": "Baja",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-08-30 04:47:04",
+    "ip_origen": "95.85.234.80",
+    "servicio": "SSH",
+    "comando": "uname -a",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.5'C",
     "throttled": "0x0"
   }
 ]
