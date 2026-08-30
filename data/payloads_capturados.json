@@ -7627,5 +7627,29 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-08-30 19:33:27",
+    "nombre_archivo": "d78ac003f36a0ed898bcda19b10daaf5a928a250014fbb4a1daa823ef4e6b71b",
+    "tamano_bytes": 2217,
+    "sha256": "d78ac003f36a0ed898bcda19b10daaf5a928a250014fbb4a1daa823ef4e6b71b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/d78ac003f36a0ed898bcda19b10daaf5a928a250014fbb4a1daa823ef4e6b71b",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 58,
+      "nombre_sugerido": "TheProject.html",
+      "tipo": "HTML",
+      "tags": [
+        "html"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
