@@ -466,13 +466,29 @@ if not df.empty:
                 tokens_salida = cantidad_analizados * 120
                 costo = (tokens_entrada / 1_000_000) * 1.0 + (tokens_salida / 1_000_000) * 5.0
 
+                periodo_txt = "N/A"
+                promedio_diario = None
+                try:
+                    fechas = pd.to_datetime(df["timestamp"], format="%Y-%m-%d %H:%M:%S")
+                    fecha_min, fecha_max = fechas.min(), fechas.max()
+                    dias_cubiertos = max((fecha_max - fecha_min).total_seconds() / 86400, 1 / 24)
+                    periodo_txt = f"{fecha_min.strftime('%d/%m %H:%M')} → {fecha_max.strftime('%d/%m %H:%M')} ({dias_cubiertos:.1f} días)"
+                    promedio_diario = costo / dias_cubiertos
+                except Exception:
+                    pass
+
                 co1, co2, co3 = st.columns(3)
                 with co1:
                     st.metric("Consultas a la API", cantidad_analizados)
                 with co2:
                     st.metric("Tokens estimados", f"{tokens_entrada + tokens_salida:,}")
                 with co3:
-                    st.metric("Costo estimado (USD)", f"${costo:.4f}")
+                    st.metric("Costo acumulado (USD)", f"${costo:.4f}")
+
+                st.caption(f"📅 Nota: este dashboard público solo muestra los últimos 1000 eventos. Período cubierto: {periodo_txt}")
+                if promedio_diario is not None:
+                    st.metric("Promedio estimado por día", f"${promedio_diario:.4f}/día")
+
                 st.caption("Estimación aproximada (Claude Haiku 4.5). No incluye consultas omitidas por anti-ráfaga o circuit breaker.")
             except Exception:
                 st.info("No se pudo calcular el costo estimado.")
