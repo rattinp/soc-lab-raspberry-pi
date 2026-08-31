@@ -7699,5 +7699,64 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-08-31 20:04:59",
+    "nombre_archivo": "bb36568c1f0a4f4d604cc67f8692506291eb1ffd217a451ffc846c94daa09440",
+    "tamano_bytes": 3013,
+    "sha256": "bb36568c1f0a4f4d604cc67f8692506291eb1ffd217a451ffc846c94daa09440",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/bb36568c1f0a4f4d604cc67f8692506291eb1ffd217a451ffc846c94daa09440",
+    "yara_matches": [
+      "Script_Descarga_Ejecucion"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 28,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 32,
+      "nombre_sugerido": "kla.sh",
+      "tipo": "Shell script",
+      "tags": [
+        "shell",
+        "detect-debug-environment",
+        "self-delete",
+        "sets-process-name"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-08-31 20:05:03",
+    "nombre_archivo": "979bd80a9ffde500946e02911d2824eab5fb25c265086b6569e6fff6977d21a6",
+    "tamano_bytes": 133452,
+    "sha256": "979bd80a9ffde500946e02911d2824eab5fb25c265086b6569e6fff6977d21a6",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/979bd80a9ffde500946e02911d2824eab5fb25c265086b6569e6fff6977d21a6",
+    "yara_matches": [
+      "Mirai_Generic",
+      "Script_Descarga_Ejecucion",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 40,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 23,
+      "nombre_sugerido": "px86",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "self-delete",
+        "sets-process-name"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
