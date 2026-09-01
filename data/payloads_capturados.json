@@ -7758,5 +7758,29 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-08-31 21:14:25",
+    "nombre_archivo": "b04d6f92453607b9ac265d7747fa832fbb243df7de023f5cdd54da5661b360f9",
+    "tamano_bytes": 276,
+    "sha256": "b04d6f92453607b9ac265d7747fa832fbb243df7de023f5cdd54da5661b360f9",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/b04d6f92453607b9ac265d7747fa832fbb243df7de023f5cdd54da5661b360f9",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": "satan_x86_64",
+      "tipo": "HTML",
+      "tags": [
+        "html"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
