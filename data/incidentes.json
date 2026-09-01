@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-09-01 00:34:46",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cec1zZbgLan34dDJfj6MA'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-01 00:34:47",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-01 00:37:27",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cec2CQkD8Rau8RzABtBJE'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-01 00:37:28",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-01 00:40:04",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cec2Q1BTQX8AvPKPh7ba3'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-01 00:40:05",
-    "ip_origen": "45.148.10.183",
-    "servicio": "SSH",
-    "comando": "/bin/./uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-01 00:43:00",
     "ip_origen": "45.148.10.183",
     "servicio": "SSH",
@@ -11997,6 +11925,78 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "36.7'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:45",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "enable",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.5'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:50",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "linuxshell",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CecFRFYwSepzrP2fLuwYM'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "35.6'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:52",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "system",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CecFRRUEzUEZ8AWYPgBVR'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "35.1'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:56",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "shell",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CecFRkYxXGFcDMbphsrso'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "36.7'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:58",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "sh",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CecFRtTiE2Ce7DmfXCBHS'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.5'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-01 03:30:59",
+    "ip_origen": "104.238.110.208",
+    "servicio": "Telnet",
+    "comando": "sh",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "37.8'C",
     "throttled": "0x0"
   }
 ]
