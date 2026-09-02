@@ -1,29 +1,5 @@
 [
   {
-    "timestamp": "2026-09-02 07:14:58",
-    "ip_origen": "160.119.76.10",
-    "servicio": "SSH",
-    "comando": "",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "34.0'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-02 07:14:59",
-    "ip_origen": "160.119.76.10",
-    "servicio": "SSH",
-    "comando": "terminal width 511",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeeSKb7JRpZMntRkumwiF'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "34.5'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-02 07:15:00",
     "ip_origen": "160.119.76.10",
     "servicio": "SSH",
@@ -11997,6 +11973,30 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "38.4'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-02 16:22:29",
+    "ip_origen": "122.193.64.145",
+    "servicio": "SSH",
+    "comando": "uname -s -m",
+    "analisis": "Comando de reconocimiento clasico: recolecta informacion basica del sistema (kernel, arquitectura, hostname) para decidir que payload descargar despues.",
+    "mitre_technique": "T1082 - System Information Discovery",
+    "mitre_tactic": "Discovery",
+    "severidad": "Baja",
+    "temperatura": "35.1'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-02 16:22:30",
+    "ip_origen": "122.193.64.145",
+    "servicio": "SSH",
+    "comando": "uname -s -m",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "36.2'C",
     "throttled": "0x0"
   }
 ]
