@@ -7911,5 +7911,57 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-02 08:31:09",
+    "nombre_archivo": "94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00",
+    "tamano_bytes": 30304472,
+    "sha256": "94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/94f2e4d8d4436874785cd14e6e6d403507b8750852f7f2040352069a75da4c00",
+    "yara_matches": [
+      "XMRig_Miner",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 45,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 17,
+      "nombre_sugerido": "discord-exploit",
+      "tipo": "ELF",
+      "tags": [
+        "64bits",
+        "elf"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-02 08:36:41",
+    "nombre_archivo": "redir_2132edac303f49d19b3069a62c12285d",
+    "tamano_bytes": 9,
+    "sha256": "4af5a5c98ad132095c6fbe7b02c242153a190a01cc321e50a916a0ca46fbaa62",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_2132edac303f49d19b3069a62c12285d",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": ".nippon",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
