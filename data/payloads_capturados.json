@@ -7990,5 +7990,32 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-02 15:01:14",
+    "nombre_archivo": "27d205dc183ea2fad0e55e10b206404be20908e39a74569ff99182d7326ed9c0",
+    "tamano_bytes": 262144,
+    "sha256": "27d205dc183ea2fad0e55e10b206404be20908e39a74569ff99182d7326ed9c0",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/27d205dc183ea2fad0e55e10b206404be20908e39a74569ff99182d7326ed9c0",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 36,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 27,
+      "nombre_sugerido": "20260801-043259_sftp__root__3901357968149845161_sshd",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "64bits"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
