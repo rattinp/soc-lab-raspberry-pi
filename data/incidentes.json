@@ -1,65 +1,5 @@
 [
   {
-    "timestamp": "2026-09-02 21:39:48",
-    "ip_origen": "45.15.227.120",
-    "servicio": "SSH",
-    "comando": "/ip cloud print",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CefaGZH1rQqQ1FgYxVWcF'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-02 21:39:50",
-    "ip_origen": "45.15.227.120",
-    "servicio": "SSH",
-    "comando": "ifconfig",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CefaGfstmHhL5aKQj8xr6'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-02 21:39:51",
-    "ip_origen": "45.15.227.120",
-    "servicio": "SSH",
-    "comando": "ifconfig",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "38.4'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-02 21:39:52",
-    "ip_origen": "45.15.227.120",
-    "servicio": "SSH",
-    "comando": "uname -a",
-    "analisis": "Comando de reconocimiento clasico: recolecta informacion basica del sistema (kernel, arquitectura, hostname) para decidir que payload descargar despues.",
-    "mitre_technique": "T1082 - System Information Discovery",
-    "mitre_tactic": "Discovery",
-    "severidad": "Baja",
-    "temperatura": "38.9'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-02 21:39:53",
-    "ip_origen": "45.15.227.120",
-    "servicio": "SSH",
-    "comando": "uname -a",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "38.9'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-02 21:39:57",
     "ip_origen": "45.15.227.120",
     "servicio": "SSH",
@@ -11997,6 +11937,66 @@
     "mitre_tactic": "Discovery",
     "severidad": "Baja",
     "temperatura": "38.4'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-03 03:50:53",
+    "ip_origen": "179.152.167.164",
+    "servicio": "Telnet",
+    "comando": "/bin/busybox",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ceg4ZnT1aUdDT3uh9puA5'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.5'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-03 03:50:55",
+    "ip_origen": "179.152.167.164",
+    "servicio": "Telnet",
+    "comando": "/bin/busybox",
+    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "35.6'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-03 03:50:57",
+    "ip_origen": "179.152.167.164",
+    "servicio": "Telnet",
+    "comando": "cd /proc && cat self/cmdline",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ceg4a4WA5tG4goCWcra4U'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "36.2'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-03 03:50:58",
+    "ip_origen": "179.152.167.164",
+    "servicio": "Telnet",
+    "comando": "cd /proc",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ceg4aAfjhMmAoGfrEP9VL'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "36.2'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-03 03:51:00",
+    "ip_origen": "179.152.167.164",
+    "servicio": "Telnet",
+    "comando": "cat self/cmdline",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Ceg4aGqp5KyUzwk1E13m7'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "36.7'C",
     "throttled": "0x0"
   }
 ]
