@@ -8237,5 +8237,34 @@
       "estado": "subido",
       "link": "https://www.hybrid-analysis.com/sample/09a7ebbcea85650a051f3c580edd7423daf1c78889a504d10e0b1f3878094bc2"
     }
+  },
+  {
+    "timestamp": "2026-09-05 08:07:49",
+    "nombre_archivo": "6d1fe6ab3cd04ca5d1ab790339ee2b6577553bc042af3b7587ece0c195267c9b",
+    "tamano_bytes": 4745,
+    "sha256": "6d1fe6ab3cd04ca5d1ab790339ee2b6577553bc042af3b7587ece0c195267c9b",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/6d1fe6ab3cd04ca5d1ab790339ee2b6577553bc042af3b7587ece0c195267c9b",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 40,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 21,
+      "nombre_sugerido": "payload",
+      "tipo": "Shell script",
+      "tags": [
+        "long-sleeps",
+        "shell",
+        "hosts-modifier",
+        "checks-hostname",
+        "irc-communication",
+        "direct-cpu-clock-access"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
