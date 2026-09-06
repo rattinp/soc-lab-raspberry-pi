@@ -8266,5 +8266,78 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-05 21:33:39",
+    "nombre_archivo": "f055bc7aa4a121d185e9bb116d62990664710aa3d6d467e65c4b69734fdf3959",
+    "tamano_bytes": 1608,
+    "sha256": "f055bc7aa4a121d185e9bb116d62990664710aa3d6d467e65c4b69734fdf3959",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/f055bc7aa4a121d185e9bb116d62990664710aa3d6d467e65c4b69734fdf3959",
+    "yara_matches": [
+      "Script_Descarga_Ejecucion"
+    ],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "subido",
+      "link": "https://www.hybrid-analysis.com/sample/f055bc7aa4a121d185e9bb116d62990664710aa3d6d467e65c4b69734fdf3959"
+    }
+  },
+  {
+    "timestamp": "2026-09-05 21:40:41",
+    "nombre_archivo": "sftp_48a02761592b4d709c1537e28cd6123e",
+    "tamano_bytes": 131072,
+    "sha256": "e948036f1c3b3024a6864fa1c49332c80e1fd28484cf487233a50154ffe104f8",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_48a02761592b4d709c1537e28cd6123e",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 29,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 25,
+      "nombre_sugerido": "sftp_a7001dba4ada4db98de3eee95e831aeb",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "64bits"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-05 21:45:28",
+    "nombre_archivo": "ceb54bde173eba25fec723583d56ebde10bae2d447f147de9d637348d6251d68",
+    "tamano_bytes": 4980736,
+    "sha256": "ceb54bde173eba25fec723583d56ebde10bae2d447f147de9d637348d6251d68",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/ceb54bde173eba25fec723583d56ebde10bae2d447f147de9d637348d6251d68",
+    "yara_matches": [
+      "XMRig_Miner",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 40,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 23,
+      "nombre_sugerido": "wbh1l.exe",
+      "tipo": "ELF",
+      "tags": [
+        "64bits",
+        "elf"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
