@@ -8516,5 +8516,29 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-06 15:26:59",
+    "nombre_archivo": "redir_8f6275f03cb54fe396d44ab9c0551279",
+    "tamano_bytes": 9,
+    "sha256": "4af5a5c98ad132095c6fbe7b02c242153a190a01cc321e50a916a0ca46fbaa62",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_8f6275f03cb54fe396d44ab9c0551279",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": ".nippon",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
