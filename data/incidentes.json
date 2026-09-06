@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-09-05 21:43:02",
-    "ip_origen": "45.153.34.235",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "40.0'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-05 21:43:04",
-    "ip_origen": "45.153.34.235",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "40.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-05 21:43:05",
-    "ip_origen": "45.153.34.235",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "41.1'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-05 21:43:08",
-    "ip_origen": "45.153.34.235",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "41.1'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-05 21:43:10",
     "ip_origen": "45.153.34.235",
     "servicio": "SSH",
@@ -11997,6 +11949,54 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-06 01:03:59",
+    "ip_origen": "193.32.162.84",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "31.8'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-06 01:05:54",
+    "ip_origen": "193.32.162.84",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "32.3'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-06 01:07:47",
+    "ip_origen": "193.32.162.84",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "31.8'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-06 01:09:43",
+    "ip_origen": "193.32.162.84",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "32.3'C",
     "throttled": "0x0"
   }
 ]
