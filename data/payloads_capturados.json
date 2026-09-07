@@ -9107,5 +9107,29 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-07 15:50:19",
+    "nombre_archivo": "6e3a2ed562c0ea2e258556f2cff109b6f8a0f08f5a1d7cb6226f0c5ac9b9d728",
+    "tamano_bytes": 36,
+    "sha256": "6e3a2ed562c0ea2e258556f2cff109b6f8a0f08f5a1d7cb6226f0c5ac9b9d728",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/6e3a2ed562c0ea2e258556f2cff109b6f8a0f08f5a1d7cb6226f0c5ac9b9d728",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 62,
+      "nombre_sugerido": "N/A",
+      "tipo": "Shell script",
+      "tags": [
+        "shell"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
