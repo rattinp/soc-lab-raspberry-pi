@@ -8842,5 +8842,270 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-07 05:22:35",
+    "nombre_archivo": "sftp_7387fd6f2fcd47b1be87b90fb0709902",
+    "tamano_bytes": 98304,
+    "sha256": "ae96654ce5a1c24086d2983bc246b8568db674059911175be883aba8151a72eb",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_7387fd6f2fcd47b1be87b90fb0709902",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 62,
+      "nombre_sugerido": "gel7gvw2.exe",
+      "tipo": "ELF",
+      "tags": [
+        "upx",
+        "arm",
+        "elf",
+        "detect-debug-environment"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:22:37",
+    "nombre_archivo": "sftp_fbc47c025af74f74a20cb059307dda0f",
+    "tamano_bytes": 1157,
+    "sha256": "3f3a11bafabb1a35db913cfe51995f2e357d049e268860175876ae5a93d23892",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_fbc47c025af74f74a20cb059307dda0f",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 21,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 39,
+      "nombre_sugerido": "20260905-055928_sftp__root_clean_sh",
+      "tipo": "Shell script",
+      "tags": [
+        "shell",
+        "persistence",
+        "detect-debug-environment"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:23:53",
+    "nombre_archivo": "sftp_7c66128b9b2549febaf29144ee0cb753",
+    "tamano_bytes": 262144,
+    "sha256": "cb6a1429ac3be313912518b906e84a1968b5e4a80a01846ef600d7ea7cab3518",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_7c66128b9b2549febaf29144ee0cb753",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 1,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 61,
+      "nombre_sugerido": "N/A",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "upx",
+        "64bits",
+        "arm",
+        "detect-debug-environment"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:24:56",
+    "nombre_archivo": "sftp_32e479d3fc9a43e9b0cfc31d9eb63852",
+    "tamano_bytes": 98304,
+    "sha256": "0ca15694fa256ab968777a9be82a558426a7d68191c33b394b2f9badf90c5089",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_32e479d3fc9a43e9b0cfc31d9eb63852",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 2,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 61,
+      "nombre_sugerido": "ouo4bm.exe",
+      "tipo": "ELF",
+      "tags": [
+        "upx",
+        "elf"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:26:30",
+    "nombre_archivo": "sftp_7ae3c809762e4ccb8055375e7b50c6a5",
+    "tamano_bytes": 32768,
+    "sha256": "519fb98b31eb087d9d39716b143ee085f5bd625298959605ac27e0b761ca98e8",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/sftp_7ae3c809762e4ccb8055375e7b50c6a5",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "subido",
+      "link": "https://www.hybrid-analysis.com/sample/519fb98b31eb087d9d39716b143ee085f5bd625298959605ac27e0b761ca98e8"
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:27:35",
+    "nombre_archivo": "85009abd6c8d8fbb99703d66e1b1e5dea60fe593819b4228ca855bed669888a5",
+    "tamano_bytes": 1081344,
+    "sha256": "85009abd6c8d8fbb99703d66e1b1e5dea60fe593819b4228ca855bed669888a5",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/85009abd6c8d8fbb99703d66e1b1e5dea60fe593819b4228ca855bed669888a5",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "subido",
+      "link": "https://www.hybrid-analysis.com/sample/85009abd6c8d8fbb99703d66e1b1e5dea60fe593819b4228ca855bed669888a5"
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:27:47",
+    "nombre_archivo": "8e1a67a5c03b3cd818f046c7a1605afccc0ee5ce437a0d099881f1872b54bc70",
+    "tamano_bytes": 1838060,
+    "sha256": "8e1a67a5c03b3cd818f046c7a1605afccc0ee5ce437a0d099881f1872b54bc70",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/8e1a67a5c03b3cd818f046c7a1605afccc0ee5ce437a0d099881f1872b54bc70",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 35,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 28,
+      "nombre_sugerido": "20260905-055943_sftp__root_redtail_i686",
+      "tipo": "ELF",
+      "tags": [
+        "sets-process-name",
+        "elf",
+        "upx",
+        "persistence",
+        "detect-debug-environment",
+        "cve-2021-41773",
+        "exploit"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:27:49",
+    "nombre_archivo": "d1cac82f44b54b0fd244a9e4122811e9ae108a197c7a65a20fd2e7552683e68e",
+    "tamano_bytes": 1696412,
+    "sha256": "d1cac82f44b54b0fd244a9e4122811e9ae108a197c7a65a20fd2e7552683e68e",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/d1cac82f44b54b0fd244a9e4122811e9ae108a197c7a65a20fd2e7552683e68e",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 33,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 28,
+      "nombre_sugerido": "aarch64",
+      "tipo": "ELF",
+      "tags": [
+        "upx",
+        "elf",
+        "64bits",
+        "detect-debug-environment",
+        "arm"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:27:50",
+    "nombre_archivo": "d70f917e35813a7ae323e6b2b539d6dbbfc3a3a6599f1fed93430b14ca08b141",
+    "tamano_bytes": 1448252,
+    "sha256": "d70f917e35813a7ae323e6b2b539d6dbbfc3a3a6599f1fed93430b14ca08b141",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/d70f917e35813a7ae323e6b2b539d6dbbfc3a3a6599f1fed93430b14ca08b141",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 34,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 28,
+      "nombre_sugerido": "20260905-055929_sftp__root_redtail_arm7",
+      "tipo": "ELF",
+      "tags": [
+        "upx",
+        "detect-debug-environment",
+        "elf",
+        "arm"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-07 05:27:52",
+    "nombre_archivo": "3f3a11bafabb1a35db913cfe51995f2e357d049e268860175876ae5a93d23892",
+    "tamano_bytes": 1157,
+    "sha256": "3f3a11bafabb1a35db913cfe51995f2e357d049e268860175876ae5a93d23892",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/3f3a11bafabb1a35db913cfe51995f2e357d049e268860175876ae5a93d23892",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 21,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 39,
+      "nombre_sugerido": "20260905-055928_sftp__root_clean_sh",
+      "tipo": "Shell script",
+      "tags": [
+        "shell",
+        "persistence",
+        "detect-debug-environment"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
