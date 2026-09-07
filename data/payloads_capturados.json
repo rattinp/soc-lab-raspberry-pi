@@ -8612,5 +8612,53 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-06 23:39:52",
+    "nombre_archivo": "redir_41410a5437624ea9b748a7245f212688",
+    "tamano_bytes": 9,
+    "sha256": "a9b1c85a7bd78dd1112ecc75c9070ea8c53078831a17aa09ebeb287fe6e21b72",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_41410a5437624ea9b748a7245f212688",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 57,
+      "nombre_sugerido": ".none",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-06 23:39:54",
+    "nombre_archivo": "redir_262b31d4c61247eebcfad5dd0011f08d",
+    "tamano_bytes": 9,
+    "sha256": "1193dde1c831808bf6f2db6f5b850b846b8a7f870873ec3b8a347f21cc5d96e3",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_262b31d4c61247eebcfad5dd0011f08d",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 58,
+      "nombre_sugerido": ".none",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
