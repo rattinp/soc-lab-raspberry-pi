@@ -9252,5 +9252,29 @@
       "estado": "subido",
       "link": "https://www.hybrid-analysis.com/sample/839f1ea5b418a1300c4aa2460acd10ee9d232170e9e035be71683cf04108a91b"
     }
+  },
+  {
+    "timestamp": "2026-09-08 06:27:41",
+    "nombre_archivo": "redir_10c0c63458df4628bc27089717b87a37",
+    "tamano_bytes": 9,
+    "sha256": "4af5a5c98ad132095c6fbe7b02c242153a190a01cc321e50a916a0ca46fbaa62",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_10c0c63458df4628bc27089717b87a37",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": ".nippon",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
