@@ -9378,5 +9378,36 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-09 16:18:54",
+    "nombre_archivo": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+    "tamano_bytes": 4,
+    "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 60,
+      "nombre_sugerido": ".npmignore",
+      "tipo": "Text",
+      "tags": [
+        "attachment",
+        "known-distributor",
+        "trusted",
+        "idle",
+        "nsrl",
+        "long-sleeps",
+        "via-tor",
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
