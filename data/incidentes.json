@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-09-10 03:51:17",
-    "ip_origen": "202.165.25.8",
-    "servicio": "SSH",
-    "comando": "echo xsec",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-10 03:51:22",
-    "ip_origen": "202.165.25.8",
-    "servicio": "SSH",
-    "comando": "echo xsec",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.7'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-10 03:51:26",
-    "ip_origen": "202.165.25.8",
-    "servicio": "SSH",
-    "comando": "echo xsec",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-10 03:52:21",
-    "ip_origen": "202.165.25.8",
-    "servicio": "SSH",
-    "comando": "echo xsec",
-    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeuKLepJvigzWWPtWz83g'}]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "35.6'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-10 03:52:25",
-    "ip_origen": "202.165.25.8",
-    "servicio": "SSH",
-    "comando": "echo xsec",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "36.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-10 03:52:28",
-    "ip_origen": "195.178.110.232",
-    "servicio": "SSH",
-    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
-    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
-    "mitre_technique": "T1059 - Command and Scripting Interpreter",
-    "mitre_tactic": "Execution",
-    "severidad": "Baja",
-    "temperatura": "38.9'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-10 03:53:16",
     "ip_origen": "204.216.221.207",
     "servicio": "Telnet",
@@ -11997,6 +11925,78 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "38.4'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:41:15",
+    "ip_origen": "92.118.39.77",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:44:17",
+    "ip_origen": "92.118.39.77",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "34.5'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:45:08",
+    "ip_origen": "162.219.178.250",
+    "servicio": "Telnet",
+    "comando": "enable",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeuwPiVbh2ojjU2k2TuyP'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:45:29",
+    "ip_origen": "162.219.178.250",
+    "servicio": "Telnet",
+    "comando": "linuxshell",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeuwRGgd8VE4rA4iAw27L'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:47:04",
+    "ip_origen": "92.118.39.77",
+    "servicio": "SSH",
+    "comando": "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${PATH:-} LC_ALL=C LANG=C",
+    "analisis": "Configuracion de la variable de entorno PATH, tipico paso preparatorio antes de ejecutar binarios propios en scripts automatizados.",
+    "mitre_technique": "T1059 - Command and Scripting Interpreter",
+    "mitre_tactic": "Execution",
+    "severidad": "Baja",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-10 11:47:19",
+    "ip_origen": "162.219.178.250",
+    "servicio": "Telnet",
+    "comando": "system",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeuwZRbNmfNopr1LYhn4b'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.5'C",
     "throttled": "0x0"
   }
 ]
