@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-09-11 04:23:26",
-    "ip_origen": "109.160.32.36",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "42.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-11 04:23:31",
-    "ip_origen": "109.160.32.36",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "42.2'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-11 04:23:34",
-    "ip_origen": "109.160.32.36",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "42.8'C",
-    "throttled": "0x0"
-  },
-  {
-    "timestamp": "2026-09-11 04:23:38",
-    "ip_origen": "109.160.32.36",
-    "servicio": "SSH",
-    "comando": "uname -s -v -n -r -m",
-    "analisis": "[Repetido en menos de 60s - no se volvio a consultar a la IA]",
-    "mitre_technique": "N/A",
-    "mitre_tactic": "N/A",
-    "severidad": "N/A",
-    "temperatura": "41.7'C",
-    "throttled": "0x0"
-  },
-  {
     "timestamp": "2026-09-11 04:23:43",
     "ip_origen": "109.160.32.36",
     "servicio": "SSH",
@@ -11997,6 +11949,54 @@
     "mitre_tactic": "N/A",
     "severidad": "N/A",
     "temperatura": "35.6'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-11 08:02:18",
+    "ip_origen": "65.49.1.10",
+    "servicio": "Telnet",
+    "comando": "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CewYD7ftUJz2P3G4XRk8i'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "33.4'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-11 08:02:25",
+    "ip_origen": "65.49.1.10",
+    "servicio": "Telnet",
+    "comando": "Accept: */*",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CewYDcXy9e7Hx4V399a4Y'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "34.0'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-11 08:02:28",
+    "ip_origen": "65.49.1.10",
+    "servicio": "Telnet",
+    "comando": "Accept-Encoding: gzip",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CewYDsQg1aZAvULSfH3Gm'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "35.1'C",
+    "throttled": "0x0"
+  },
+  {
+    "timestamp": "2026-09-11 08:02:40",
+    "ip_origen": "65.49.1.10",
+    "servicio": "Telnet",
+    "comando": "",
+    "analisis": "[ERROR consultando Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CewYEk9tGdSD6mgAzcg5Z'}]",
+    "mitre_technique": "N/A",
+    "mitre_tactic": "N/A",
+    "severidad": "N/A",
+    "temperatura": "35.1'C",
     "throttled": "0x0"
   }
 ]
