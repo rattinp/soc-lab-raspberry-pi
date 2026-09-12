@@ -10346,5 +10346,53 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-12 17:44:34",
+    "nombre_archivo": "redir_16c6e6e4dfa643069daee9a67704d2ec",
+    "tamano_bytes": 9,
+    "sha256": "0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_16c6e6e4dfa643069daee9a67704d2ec",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 61,
+      "nombre_sugerido": "0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7.sh",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-12 17:45:01",
+    "nombre_archivo": "0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7",
+    "tamano_bytes": 9,
+    "sha256": "0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 0,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 61,
+      "nombre_sugerido": "0dc95fb4077cce0bff19aa1a77109d059dff6503bbf6c1b0dd2f41fc0a4c88e7.sh",
+      "tipo": "Text",
+      "tags": [
+        "text"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
