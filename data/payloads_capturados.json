@@ -10036,5 +10036,139 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-11 20:42:52",
+    "nombre_archivo": "73695282607747038a31f516e3f8310a67ae6f2f9e4a0b90b55a40f77272e559",
+    "tamano_bytes": 121256,
+    "sha256": "73695282607747038a31f516e3f8310a67ae6f2f9e4a0b90b55a40f77272e559",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/73695282607747038a31f516e3f8310a67ae6f2f9e4a0b90b55a40f77272e559",
+    "yara_matches": [
+      "Mirai_Generic",
+      "Script_Descarga_Ejecucion",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 42,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 22,
+      "nombre_sugerido": "3g92uquf.exe",
+      "tipo": "ELF",
+      "tags": [
+        "persistence",
+        "sets-process-name",
+        "service-scan",
+        "elf",
+        "arm",
+        "detect-debug-environment",
+        "spreader"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-11 20:43:03",
+    "nombre_archivo": "7b1cbba56bb80e185cdf2097f5716c31d7e0f88f28ad7220b3b5a2cf73859ec8",
+    "tamano_bytes": 6734,
+    "sha256": "7b1cbba56bb80e185cdf2097f5716c31d7e0f88f28ad7220b3b5a2cf73859ec8",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/7b1cbba56bb80e185cdf2097f5716c31d7e0f88f28ad7220b3b5a2cf73859ec8",
+    "yara_matches": [
+      "Mirai_Generic",
+      "Script_Descarga_Ejecucion"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 41,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 20,
+      "nombre_sugerido": "handshakebins.sh",
+      "tipo": "Shell script",
+      "tags": [
+        "service-scan",
+        "sets-process-name",
+        "shell",
+        "self-delete",
+        "detect-debug-environment",
+        "persistence"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-11 20:43:20",
+    "nombre_archivo": "cd9655a77201f73e69953ec5b53f898de41983c1b4dcedd0c431955b9c20b241",
+    "tamano_bytes": 113710,
+    "sha256": "cd9655a77201f73e69953ec5b53f898de41983c1b4dcedd0c431955b9c20b241",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/cd9655a77201f73e69953ec5b53f898de41983c1b4dcedd0c431955b9c20b241",
+    "yara_matches": [
+      "Mirai_Generic",
+      "Script_Descarga_Ejecucion",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 42,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 22,
+      "nombre_sugerido": "e2baknm.exe",
+      "tipo": "ELF",
+      "tags": [
+        "elf",
+        "service-scan",
+        "arm",
+        "sets-process-name",
+        "detect-debug-environment",
+        "persistence",
+        "spreader"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-11 20:43:21",
+    "nombre_archivo": "07c0a0af63dde8dc2e36dc58b630dcad6563263e992877aaa704530afb8a5656",
+    "tamano_bytes": 130430,
+    "sha256": "07c0a0af63dde8dc2e36dc58b630dcad6563263e992877aaa704530afb8a5656",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/07c0a0af63dde8dc2e36dc58b630dcad6563263e992877aaa704530afb8a5656",
+    "yara_matches": [
+      "Mirai_Generic",
+      "Script_Descarga_Ejecucion",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 40,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 23,
+      "nombre_sugerido": "dkpxpve.exe",
+      "tipo": "ELF",
+      "tags": [
+        "service-scan",
+        "sets-process-name",
+        "spreader",
+        "detect-debug-environment",
+        "elf",
+        "persistence",
+        "arm"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
