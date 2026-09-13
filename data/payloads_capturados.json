@@ -10394,5 +10394,69 @@
       "estado": "no_intentado",
       "link": null
     }
+  },
+  {
+    "timestamp": "2026-09-13 00:36:45",
+    "nombre_archivo": "redir_bcd4836771cf483d973d90fb5c743e66",
+    "tamano_bytes": 128,
+    "sha256": "a02c32b88f9e5f21846d3bc7f3da672b9583066a86fd3004ee29cdb3d55b35e9",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_bcd4836771cf483d973d90fb5c743e66",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "subido",
+      "link": "https://www.hybrid-analysis.com/sample/a02c32b88f9e5f21846d3bc7f3da672b9583066a86fd3004ee29cdb3d55b35e9"
+    }
+  },
+  {
+    "timestamp": "2026-09-13 00:39:17",
+    "nombre_archivo": "f57f18df7dd8fb087bec87204e601e120214f459f0e3e9c4a626675966186354",
+    "tamano_bytes": 152,
+    "sha256": "f57f18df7dd8fb087bec87204e601e120214f459f0e3e9c4a626675966186354",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/f57f18df7dd8fb087bec87204e601e120214f459f0e3e9c4a626675966186354",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "encontrado",
+      "link": "https://www.hybrid-analysis.com/sample/f57f18df7dd8fb087bec87204e601e120214f459f0e3e9c4a626675966186354"
+    }
+  },
+  {
+    "timestamp": "2026-09-13 00:40:51",
+    "nombre_archivo": "redir_0a171ed5ca2941c69c747ce54e778cd7",
+    "tamano_bytes": 608,
+    "sha256": "2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/redir_0a171ed5ca2941c69c747ce54e778cd7",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "subido",
+      "link": "https://www.hybrid-analysis.com/sample/2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1"
+    }
+  },
+  {
+    "timestamp": "2026-09-13 00:41:53",
+    "nombre_archivo": "2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1",
+    "tamano_bytes": 608,
+    "sha256": "2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1",
+    "yara_matches": [],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "encontrado",
+      "link": "https://www.hybrid-analysis.com/sample/2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1"
+    }
   }
 ]
