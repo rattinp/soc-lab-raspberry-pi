@@ -10458,5 +10458,90 @@
       "estado": "encontrado",
       "link": "https://www.hybrid-analysis.com/sample/2a3de95c6bdd9032c05b22503c446320bacc3e45081827f3ce4c83f68ef907e1"
     }
+  },
+  {
+    "timestamp": "2026-09-13 18:25:41",
+    "nombre_archivo": "tmpgdwdjy5b",
+    "tamano_bytes": 12032,
+    "sha256": "0f3855c8209f7852be39cf3bd5ee5bee4cf39e97538a385a34bb3cd5d56c3720",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/tmpgdwdjy5b",
+    "yara_matches": [
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": false,
+      "mensaje": "Hash no encontrado en VirusTotal todavia"
+    },
+    "hybrid_analysis": {
+      "estado": "error",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-13 18:25:42",
+    "nombre_archivo": "39be6853a8204ce6455a373a6ffb4cb4672d4a62d90be69f7d6eeb66cda10b96",
+    "tamano_bytes": 3241,
+    "sha256": "39be6853a8204ce6455a373a6ffb4cb4672d4a62d90be69f7d6eeb66cda10b96",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/39be6853a8204ce6455a373a6ffb4cb4672d4a62d90be69f7d6eeb66cda10b96",
+    "yara_matches": [
+      "Script_Descarga_Ejecucion"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 23,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 37,
+      "nombre_sugerido": "kla.sh",
+      "tipo": "Shell script",
+      "tags": [
+        "shell",
+        "sets-process-name",
+        "detect-debug-environment",
+        "long-sleeps",
+        "persistence",
+        "service-scan",
+        "self-delete"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
+  },
+  {
+    "timestamp": "2026-09-13 18:25:44",
+    "nombre_archivo": "cd6ccc5dabe85309a938e43c9508998bb0f52a9264fa9ba9276956f7fa42f48d",
+    "tamano_bytes": 190632,
+    "sha256": "cd6ccc5dabe85309a938e43c9508998bb0f52a9264fa9ba9276956f7fa42f48d",
+    "ruta_local": "/home/usuario/cowrie_logs/lib/cowrie/downloads/cd6ccc5dabe85309a938e43c9508998bb0f52a9264fa9ba9276956f7fa42f48d",
+    "yara_matches": [
+      "Mirai_Generic",
+      "ELF_Binario_Empaquetado"
+    ],
+    "virustotal": {
+      "conocido": true,
+      "maliciosos": 23,
+      "sospechosos": 0,
+      "inofensivos": 0,
+      "sin_detectar": 41,
+      "nombre_sugerido": "nr33bnrm.exe",
+      "tipo": "ELF",
+      "tags": [
+        "64bits",
+        "elf",
+        "spreader",
+        "sets-process-name",
+        "detect-debug-environment",
+        "long-sleeps",
+        "persistence",
+        "service-scan",
+        "self-delete"
+      ]
+    },
+    "hybrid_analysis": {
+      "estado": "no_intentado",
+      "link": null
+    }
   }
 ]
